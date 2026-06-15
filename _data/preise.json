@@ -2,7 +2,7 @@
   "tarife": [
     {
       "name": "Panthers 24",
-      "laufzeit": "24 Monate",
+      "laufzeit": "24 Monate Laufzeit",
       "altersgruppe": "Erwachsene",
       "preis": "54",
       "cent": "00",
@@ -12,7 +12,7 @@
     },
     {
       "name": "Panthers 12 ",
-      "laufzeit": "12 Monate",
+      "laufzeit": "12 Monate Laufzeit",
       "altersgruppe": "Erwachsene",
       "preis": "64",
       "cent": "00",
@@ -22,7 +22,7 @@
     },
     {
       "name": "Panthers 6",
-      "laufzeit": "6 Monate",
+      "laufzeit": "6 Monate Laufzeit",
       "altersgruppe": "Erwachsene",
       "preis": "74",
       "cent": "00",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Panthers Flex",
-      "laufzeit": "1 Monat",
+      "laufzeit": "1 Monat Laufzeit",
       "altersgruppe": "Erwachsene",
       "preis": "89",
       "cent": "00",
@@ -42,7 +42,7 @@
     },
     {
       "name": "BJJ (Berserkers) ",
-      "laufzeit": "12 Monate",
+      "laufzeit": "12 Monate Laufzeit",
       "altersgruppe": "Erwachsene",
       "preis": "35",
       "cent": "00",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Baby Panthers",
-      "laufzeit": "1 Monat",
+      "laufzeit": "1 Monat Laufzeit",
       "altersgruppe": "Kinder",
       "preis": "35",
       "cent": "00",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Little Panthers",
-      "laufzeit": "1 Monat",
+      "laufzeit": "1 Monat Laufzeit",
       "altersgruppe": "Kinder",
       "preis": "50",
       "cent": "00",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Kid Panthers",
-      "laufzeit": "1 Monat",
+      "laufzeit": "1 Monat Laufzeit",
       "altersgruppe": "Kinder",
       "preis": "50",
       "cent": "00",
@@ -82,7 +82,7 @@
     },
     {
       "name": "Teem Panthers",
-      "laufzeit": "1 Monat",
+      "laufzeit": "1 Monat Laufzeit",
       "altersgruppe": "Kinder",
       "preis": "54",
       "cent": "00",
