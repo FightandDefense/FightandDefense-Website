@@ -116,6 +116,25 @@
     }
   }
 
+  // ---------- PROBETRAINING-FORMULAR (MATOOL oder intern) ----------
+  function applyProbetrainingFormular(data) {
+    if (!data || !data.probetraining_formular) return;
+    var p = data.probetraining_formular;
+    if (!p.iframe_code) return; // kein Code hinterlegt -> internes Formular bleibt aktiv
+    var container = document.querySelector('[data-cms="probetraining-formular"]');
+    if (!container) return;
+    var hoehe = p.hoehe || 600;
+    container.innerHTML =
+      '<div class="matool-embed" style="width:100%; height:' + hoehe + 'px;">' + p.iframe_code + '</div>';
+    // Falls der eingefügte iframe keine eigene Höhe/Breite mitbringt, sinnvolle Defaults setzen
+    var iframe = container.querySelector("iframe");
+    if (iframe) {
+      if (!iframe.style.height && !iframe.getAttribute("height")) iframe.style.height = "100%";
+      if (!iframe.style.width && !iframe.getAttribute("width")) iframe.style.width = "100%";
+      iframe.style.border = "0";
+    }
+  }
+
   // ---------- AKTUELLES / NEWS ----------
   function applyNews(data) {
     if (!data || !data.news) return;
@@ -283,6 +302,7 @@
       applyHero(data);
       applyHighlight(data);
       applyTrainerausbildung(data);
+      applyProbetrainingFormular(data);
     });
 
     if (document.querySelector('[data-cms="news-liste"]')) {

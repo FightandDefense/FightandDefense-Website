@@ -19,5 +19,9 @@
     "text1": "[Platzhalter: Beschreibe hier, was die Fight&Defense Trainerausbildung ausmacht — Inhalte, Dauer, Aufbau, was Teilnehmer lernen und welche Voraussetzungen sie mitbringen sollten.]",
     "text2": "[Platzhalter: Was unterscheidet eure Ausbildung von anderen? Was ist das Ziel — eigene Kurse leiten, in bestehenden Clubs unterrichten, oder für den eigenen Verein ausbilden?]",
     "youtube_link": ""
+  },
+  "probetraining_formular": {
+    "iframe_code": "",
+    "hoehe": 600
   }
 }

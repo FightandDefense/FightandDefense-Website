@@ -807,40 +807,44 @@
         <h3 class="form-card-title">Probetraining anfragen</h3>
         <p class="form-card-sub">Füll das Formular aus und wir melden uns schnellstmöglich bei dir.</p>
 
-        <form name="probetraining" netlify netlify-honeypot="bot-field"  method="POST" action="https://formspree.io/f/mvzdqpkq">
-          <input type="hidden" name="form-name" value="probetraining" />
-          <p style="display:none"><input name="bot-field" /></p>
+        <!-- Wird durch ein MATOOL-iframe ersetzt, sobald im CMS ein Embed-Code hinterlegt ist.
+             Solange kein Code hinterlegt ist, bleibt dieses interne Formular aktiv. -->
+        <div data-cms="probetraining-formular">
+          <form name="probetraining" netlify netlify-honeypot="bot-field"  method="POST" action="https://formspree.io/f/mvzdqpkq">
+            <input type="hidden" name="form-name" value="probetraining" />
+            <p style="display:none"><input name="bot-field" /></p>
 
-          <div class="field">
-            <label for="pt-name">Name *</label>
-            <input type="text" id="pt-name" name="name" placeholder="Dein vollständiger Name" required />
+            <div class="field">
+              <label for="pt-name">Name *</label>
+              <input type="text" id="pt-name" name="name" placeholder="Dein vollständiger Name" required />
+            </div>
+            <div class="field">
+              <label for="pt-email">E-Mail *</label>
+              <input type="email" id="pt-email" name="email" placeholder="deine@email.de" required />
+            </div>
+            <div class="field">
+              <label for="pt-phone">Telefon *</label>
+              <input type="tel" id="pt-phone" name="telefon" placeholder="+49 …" required />
+            </div>
+            <div class="field">
+              <label for="pt-disziplin">Interesse an</label>
+              <select id="pt-disziplin" name="disziplin">
+                <option value="">– Bitte wählen –</option>
+                <option>Selbstverteidigung</option>
+                <option>Kampfsport (BJJ / MMA / Boxen / Kickboxen / Judo)</option>
+                <option>Fitness</option>
+                <option>Noch unsicher</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pt-msg">Nachricht (optional)</label>
+              <textarea id="pt-msg" name="nachricht" placeholder="Fragen, Vorkenntnisse, Wunschtermin …"></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit trial-btn">Probetraining anfragen</button>
+          </form>
+          <div class="success-msg" id="probetraining-success">
+            ✅ Danke! Wir melden uns so schnell wie möglich bei dir.
           </div>
-          <div class="field">
-            <label for="pt-email">E-Mail *</label>
-            <input type="email" id="pt-email" name="email" placeholder="deine@email.de" required />
-          </div>
-          <div class="field">
-            <label for="pt-phone">Telefon *</label>
-            <input type="tel" id="pt-phone" name="telefon" placeholder="+49 …" required />
-          </div>
-          <div class="field">
-            <label for="pt-disziplin">Interesse an</label>
-            <select id="pt-disziplin" name="disziplin">
-              <option value="">– Bitte wählen –</option>
-              <option>Selbstverteidigung</option>
-              <option>Kampfsport (BJJ / MMA / Boxen / Kickboxen / Judo)</option>
-              <option>Fitness</option>
-              <option>Noch unsicher</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="pt-msg">Nachricht (optional)</label>
-            <textarea id="pt-msg" name="nachricht" placeholder="Fragen, Vorkenntnisse, Wunschtermin …"></textarea>
-          </div>
-          <button type="submit" class="btn btn-submit trial-btn">Probetraining anfragen</button>
-        </form>
-        <div class="success-msg" id="probetraining-success">
-          ✅ Danke! Wir melden uns so schnell wie möglich bei dir.
         </div>
       </div>
 
