@@ -182,3 +182,33 @@ collections:
             fields:
               - { label: "iframe-Einbettungscode von MATOOL", name: "iframe_code", widget: "text", required: false, hint: "Den kompletten <iframe ...>...</iframe>-Code aus MATOOL hier einfügen. Leer lassen, um das bisherige interne Formular weiter zu verwenden." }
               - { label: "Höhe des Formulars (in Pixel)", name: "hoehe", widget: "number", default: 600, hint: "Falls das Formular abgeschnitten wirkt oder zu viel Leerraum lässt, hier die Höhe anpassen, z.B. 600, 750, 900." }
+
+          - label: "Startseite – CTA-Streifen"
+            name: "cta_strip"
+            widget: "object"
+            hint: "Der farbige Streifen mit Aufruf-Text und Button, direkt unter dem Hero-Bereich."
+            fields:
+              - { label: "Überschrift Teil 1", name: "headline_teil1", widget: "string", hint: "z.B. Fit für die Straße. Stark im Ring." }
+              - { label: "Überschrift Teil 2 (hervorgehoben, zweite Zeile)", name: "headline_teil2", widget: "string", hint: "z.B. Bereit für dich selbst." }
+              - { label: "Untertext", name: "untertext", widget: "text" }
+              - { label: "Button-Text", name: "button_text", widget: "string", hint: "z.B. Jetzt Probetraining buchen" }
+
+          - label: "Startseite – Trainingsbereich"
+            name: "training_bereich"
+            widget: "object"
+            hint: "Der Bereich 'Unser Training' mit den drei Kästchen Selbstverteidigung, Kampfsport und Fitness."
+            fields:
+              - { label: "Label über der Überschrift", name: "section_label", widget: "string", hint: "z.B. Was wir trainieren" }
+              - { label: "Überschrift Teil 1", name: "titel_teil1", widget: "string", hint: "z.B. Unser" }
+              - { label: "Überschrift Teil 2 (hervorgehoben)", name: "titel_teil2", widget: "string", hint: "z.B. Training" }
+              - { label: "Beschreibungstext", name: "beschreibung", widget: "text" }
+              - label: "Kästchen"
+                name: "karten"
+                widget: "list"
+                label_singular: "Kästchen"
+                summary: "{{titel}}"
+                min: 1
+                fields:
+                  - { label: "Kategorie-Label (klein, über dem Titel)", name: "icon_label", widget: "string", hint: "z.B. Selbstverteidigung, Kampfsport, Fitness" }
+                  - { label: "Titel", name: "titel", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }

@@ -1,13 +1,15 @@
-# Update: MATOOL-Formular für Probetraining einbinden
+# Update: CTA-Streifen & Trainingsbereich auf der Startseite editierbar
 
-Dieses Update fügt im CMS ein neues Feld hinzu, über das du den
-iframe-Embed-Code deines MATOOL-Formulars einfügen kannst. Sobald dort
-ein Code hinterlegt ist, ersetzt er automatisch das bisherige interne
-"Probetraining anfragen"-Formular auf der Startseite.
+Dieses Update macht zwei weitere Bereiche der Startseite über das CMS
+bearbeitbar:
 
-**Solange das Feld leer bleibt**, funktioniert die Seite wie bisher
-(internes Formular). Du kannst das MATOOL-Formular also in Ruhe
-vorbereiten und erst aktivieren, wenn du bereit bist.
+1. **CTA-Streifen** (der farbige Block direkt unter dem Hero-Bereich mit
+   "Fit für die Straße. Stark im Ring." + Button)
+2. **Trainingsbereich** ("Unser Training" mit den drei Kästchen
+   Selbstverteidigung, Kampfsport, Fitness)
+
+Alle bisherigen Texte bleiben unverändert – du kannst sie jetzt einfach
+über `/admin/` anpassen.
 
 ## Enthaltene Dateien (4)
 
@@ -21,42 +23,50 @@ index.html
 ## Einspielen
 
 Diese 4 Dateien im GitHub-Repo öffnen und durch die Versionen aus diesem
-Paket ersetzen (Inhalt löschen → neuen Inhalt einfügen → Commit).
+Paket ersetzen (Inhalt löschen → neuen Inhalt einfügen → Commit), oder
+den Inhalt dieses Pakets per "Add file → Upload files" hochladen
+(überschreibt automatisch die bestehenden 4 Dateien).
 
-## So aktivierst du das MATOOL-Formular
+## Was ist neu im CMS?
 
-1. In MATOOL das Formular öffnen und den **Embed-/iframe-Code**
-   kopieren. Das sieht ungefähr so aus:
-   ```html
-   <iframe src="https://matool.de/formulare/xyz123" width="100%" height="800"></iframe>
-   ```
-2. Im CMS unter `/admin/` → **"Allgemeine Inhalte"** → Abschnitt
-   **"Probetraining-Formular (MATOOL)"** öffnen.
-3. Den kompletten iframe-Code (inklusive `<iframe ...>` und
-   `</iframe>`) in das Feld **"iframe-Einbettungscode von MATOOL"**
-   einfügen.
-4. Bei **"Höhe des Formulars (in Pixel)"** einen Wert eintragen, der zur
-   tatsächlichen Höhe des MATOOL-Formulars passt (Standard: 600). Falls
-   das Formular abgeschnitten wirkt oder zu viel Leerraum lässt, diesen
-   Wert anpassen und erneut publizieren.
-5. **Publish** klicken.
+Unter `/admin/` → **"Allgemeine Inhalte"** gibt es jetzt zwei neue
+Abschnitte:
 
-Nach ca. 1 Minute ersetzt das MATOOL-Formular automatisch das bisherige
-interne Formular im Bereich "Probetraining buchen" auf der Startseite.
-Überschrift ("Probetraining anfragen") und Beschreibungstext bleiben
-unverändert erhalten.
+### "Startseite – CTA-Streifen"
 
-## Zurück zum internen Formular wechseln
+- **Überschrift Teil 1**: erste Zeile, normale Farbe
+  (z.B. "Fit für die Straße. Stark im Ring.")
+- **Überschrift Teil 2**: zweite Zeile, hervorgehoben in Blau
+  (z.B. "Bereit für dich selbst.")
+- **Untertext**: der Fließtext darunter
+- **Button-Text**: Text auf dem Button (Link bleibt auf
+  "Probetraining buchen"-Bereich)
 
-Falls du später wieder das interne Formular nutzen möchtest: einfach den
-Inhalt des Felds "iframe-Einbettungscode von MATOOL" löschen (leer
-lassen) und publizieren – das interne Formular erscheint automatisch
-wieder.
+### "Startseite – Trainingsbereich"
 
-## Hinweis zur Höhe
+- **Label über der Überschrift**: kleiner Text oben
+  (z.B. "Was wir trainieren")
+- **Überschrift Teil 1**: z.B. "Unser" (normale Farbe)
+- **Überschrift Teil 2**: z.B. "Training" (hervorgehoben in Blau)
+- **Beschreibungstext**: der Fließtext darunter
+- **Kästchen**: Liste mit den drei (oder mehr/weniger) Trainingskästchen,
+  jedes mit:
+  - **Kategorie-Label** (kleiner Text oben im Kästchen, z.B.
+    "Selbstverteidigung")
+  - **Titel** (z.B. "Effektiv. Real. Skalierbar.")
+  - **Text** (Beschreibung)
 
-iframes übernehmen nicht automatisch die Höhe ihres Inhalts. Falls das
-MATOOL-Formular nach dem Ausfüllen z.B. eine Erfolgsmeldung anzeigt, die
-mehr Platz braucht, oder falls auf dem Smartphone mehr/weniger Platz
-benötigt wird, kannst du die Höhe im CMS jederzeit nachjustieren – ohne
-erneuten Code-Eingriff.
+## Kästchen hinzufügen/entfernen/sortieren
+
+- **Hinzufügen**: unten in der Liste "Kästchen" auf "Kästchen
+  hinzufügen" klicken
+- **Entfernen**: einen Eintrag öffnen und über das Mülleimer-Symbol
+  löschen (mindestens 1 Kästchen muss bestehen bleiben)
+- **Reihenfolge ändern**: per Drag&Drop an den Griffen links neben jedem
+  Eintrag – die Reihenfolge in der Liste entspricht der Anzeige auf der
+  Webseite
+
+## Nach dem Bearbeiten
+
+Wie gewohnt: **Publish** klicken, nach ca. 1 Minute ist die Änderung auf
+der Startseite sichtbar.

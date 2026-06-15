@@ -99,6 +99,40 @@
     setText('[data-cms="highlight-text"]', h.text);
   }
 
+  // ---------- STARTSEITE: CTA-STREIFEN ----------
+  function applyCtaStrip(data) {
+    if (!data || !data.cta_strip) return;
+    var c = data.cta_strip;
+    setText('[data-cms="cta-headline1"]', c.headline_teil1);
+    setText('[data-cms="cta-headline2"]', c.headline_teil2);
+    setText('[data-cms="cta-untertext"]', c.untertext);
+    setText('[data-cms="cta-button"]', c.button_text);
+  }
+
+  // ---------- STARTSEITE: TRAININGSBEREICH ----------
+  function applyTrainingBereich(data) {
+    if (!data || !data.training_bereich) return;
+    var t = data.training_bereich;
+    setText('[data-cms="training-label"]', t.section_label);
+    setText('[data-cms="training-titel1"]', t.titel_teil1);
+    setText('[data-cms="training-titel2"]', t.titel_teil2);
+    setText('[data-cms="training-beschreibung"]', t.beschreibung);
+
+    var container = document.querySelector('[data-cms="training-karten"]');
+    if (container && t.karten) {
+      container.innerHTML = "";
+      t.karten.forEach(function (karte) {
+        var div = document.createElement("div");
+        div.className = "training-card fade-in visible";
+        div.innerHTML =
+          '<span class="training-icon">' + (karte.icon_label || "") + '</span>' +
+          '<h3>' + (karte.titel || "") + '</h3>' +
+          '<p>' + (karte.text || "") + '</p>';
+        container.appendChild(div);
+      });
+    }
+  }
+
   // ---------- TRAINERAUSBILDUNG ----------
   function applyTrainerausbildung(data) {
     if (!data || !data.trainerausbildung) return;
@@ -303,6 +337,8 @@
       applyHighlight(data);
       applyTrainerausbildung(data);
       applyProbetrainingFormular(data);
+      applyCtaStrip(data);
+      applyTrainingBereich(data);
     });
 
     if (document.querySelector('[data-cms="news-liste"]')) {
