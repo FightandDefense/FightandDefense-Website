@@ -5,8 +5,11 @@
       "titel": "Neues Equipment & Kurszeiten",
       "text": "Wir haben unseren Trainingsraum mit neuem Equipment ausgestattet und die Kurszeiten für den Sommer optimiert. Schaut im Trainingsplan vorbei!",
       "hervorgehoben": true,
-      "bild": "",
-      "galerie": []
+      "bild": "/images/uploads/fab8c9e7-0a85-4bbc-b9ce-92e957a21b0b.jpg",
+      "galerie": [
+        "/images/uploads/pixelcut-export_-1-_9-transformed.png",
+        "/images/uploads/fab8c9e7-0a85-4bbc-b9ce-92e957a21b0b.jpg"
+      ]
     },
     {
       "datum": "10. März 2026",
