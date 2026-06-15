@@ -1,0 +1,50 @@
+{
+  "tage": [
+    {
+      "tag": "Montag",
+      "kurse": [
+        { "zeit": "15:00 – 15:45", "name": "Baby Panthers" },
+        { "zeit": "16:00 – 16:45", "name": "Little Panthers" },
+        { "zeit": "17:00 – 17:45", "name": "Teen Panthers" },
+        { "zeit": "17:00 – 18:00", "name": "Fitness Class" },
+        { "zeit": "18:00 – 19:15", "name": "Self Defense Class" },
+        { "zeit": "19:15 – 20:45", "name": "BJJ" }
+      ]
+    },
+    {
+      "tag": "Dienstag",
+      "kurse": [
+        { "zeit": "18:00 – 19:15", "name": "Self Defense Class" },
+        { "zeit": "19:15 – 20:45", "name": "Fighters Class" }
+      ]
+    },
+    {
+      "tag": "Mittwoch",
+      "kurse": [
+        { "zeit": "15:00 – 15:45", "name": "Baby Panthers" },
+        { "zeit": "16:00 – 16:45", "name": "Little Panthers" },
+        { "zeit": "17:00 – 17:45", "name": "Teen Panthers" },
+        { "zeit": "17:00 – 18:00", "name": "Fitness Class" },
+        { "zeit": "18:00 – 19:15", "name": "Self Defense Class" },
+        { "zeit": "19:15 – 20:45", "name": "BJJ" }
+      ]
+    },
+    {
+      "tag": "Donnerstag",
+      "kurse": [
+        { "zeit": "18:00 – 19:15", "name": "Self Defense Class" },
+        { "zeit": "19:15 – 20:45", "name": "Fighters Class" }
+      ]
+    },
+    {
+      "tag": "Freitag",
+      "kurse": [
+        { "zeit": "15:00 – 15:45", "name": "Baby Panthers" },
+        { "zeit": "16:00 – 16:45", "name": "Little Panthers" },
+        { "zeit": "17:00 – 17:45", "name": "Teen Panthers" },
+        { "zeit": "17:00 – 18:00", "name": "Fitness Class" },
+        { "zeit": "18:00 – 19:15", "name": "Self Defense Class" }
+      ]
+    }
+  ]
+}

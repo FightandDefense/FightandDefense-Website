@@ -1,0 +1,23 @@
+{
+  "kontakt": {
+    "adresse_zeile1": "Auf dem Schmaarkamp 1b",
+    "adresse_zeile2": "21339 Lüneburg",
+    "telefon": "0178 - 83 46 838",
+    "telefon_link": "+491788346838",
+    "email": "Info@fightanddefense.de"
+  },
+  "hero": {
+    "tagline": "Train Real and Stay Safe",
+    "untertext": "Kein Show-Training. Kein leeres Versprechen. Bei Fight&Defense lernst du Selbstverteidigung, die wirklich funktioniert — praxisnah, individuell und in einem Umfeld, das dich täglich besser macht."
+  },
+  "highlight_seminar": {
+    "titel": "Seminar: Krav Maga Basis-Intensiv",
+    "datum": "Samstag, 25. April 2026 | 10:00 – 14:00 Uhr",
+    "text": "Ein kompakter Workshop für Einsteiger und Fortgeschrittene zur Auffrischung der fundamentalen Verteidigungstechniken."
+  },
+  "trainerausbildung": {
+    "text1": "[Platzhalter: Beschreibe hier, was die Fight&Defense Trainerausbildung ausmacht — Inhalte, Dauer, Aufbau, was Teilnehmer lernen und welche Voraussetzungen sie mitbringen sollten.]",
+    "text2": "[Platzhalter: Was unterscheidet eure Ausbildung von anderen? Was ist das Ziel — eigene Kurse leiten, in bestehenden Clubs unterrichten, oder für den eigenen Verein ausbilden?]",
+    "youtube_link": ""
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "news": [
+    {
+      "datum": "18. April 2026",
+      "titel": "Neues Equipment & Kurszeiten",
+      "text": "Wir haben unseren Trainingsraum mit neuem Equipment ausgestattet und die Kurszeiten für den Sommer optimiert. Schaut im Trainingsplan vorbei!",
+      "hervorgehoben": true,
+      "bild": "",
+      "galerie": []
+    },
+    {
+      "datum": "10. März 2026",
+      "titel": "Rückblick: Intensiv-Seminar Krav Maga",
+      "text": "Ein voller Erfolg! Über 30 Teilnehmer arbeiteten am vergangenen Wochenende an ihren Verteidigungstechniken.",
+      "hervorgehoben": false,
+      "bild": "",
+      "galerie": []
+    }
+  ]
+}

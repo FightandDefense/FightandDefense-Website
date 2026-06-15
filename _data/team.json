@@ -1,0 +1,18 @@
+{
+  "team": [
+    {
+      "kuerzel": "S",
+      "name": "Steffan",
+      "rolle": "Gründer & Head Trainer",
+      "bio": "Steffan ist der Kopf hinter Fight&Defense — Trainer, Gründer und treibende Kraft des Projekts. Im Laufe der Jahre hat er sich mehrere hochkarätige Qualifikationen erarbeitet, darunter Schwarze Gürtel im Ju-Jutsu und Krav Maga. Dieses fundierte Fundament bildet die Basis für ein Trainingskonzept, das Effektivität und Individualität konsequent verbindet. Für Steffan ist Training mehr als Technik: Es geht darum, Menschen in schwierigen Situationen handlungsfähig zu machen — körperlich wie mental. Sein Unterrichtsstil ist direkt, ehrlich und immer auf den Menschen ausgerichtet, der vor ihm steht.",
+      "foto": ""
+    },
+    {
+      "kuerzel": "K",
+      "name": "Kathi",
+      "rolle": "Trainerin & Co-Gründerin",
+      "bio": "Kathi bringt eine besondere Perspektive ins Team: Sie weiß, wie es sich anfühlt, als Frau in einer Welt zu trainieren, die lange von Männern dominiert wurde — und genau das macht sie zu einer außergewöhnlichen Trainerin. Besonders hervorzuheben ist ihre Stärke in der Arbeit mit Kindern und Jugendlichen: Mit Einfühlungsvermögen, Geduld und einem feinen Gespür für die Bedürfnisse junger Menschen schafft sie eine Trainingsatmosphäre, in der Vertrauen und Entwicklung Hand in Hand gehen. Bei Kathi steht immer der Mensch im Mittelpunkt — nicht die Perfektion der Bewegung, sondern der Fortschritt dahinter.",
+      "foto": ""
+    }
+  ]
+}

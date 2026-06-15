@@ -1,0 +1,75 @@
+{
+  "erwachsene": [
+    {
+      "laufzeit": "24 Monate",
+      "preis": "49",
+      "cent": "90",
+      "hinweis": "Beste Konditionen — langfristig Training planen und von maximalem Preisvorteil profitieren.",
+      "sparhinweis": "↓ Günstigster Tarif",
+      "beliebt": false
+    },
+    {
+      "laufzeit": "12 Monate",
+      "preis": "54",
+      "cent": "90",
+      "hinweis": "Der Klassiker — ein Jahr voll dabei, solides Fundament aufbauen.",
+      "sparhinweis": "",
+      "beliebt": true
+    },
+    {
+      "laufzeit": "6 Monate",
+      "preis": "59",
+      "cent": "90",
+      "hinweis": "Halbjahres-Einstieg — ideal zum Reinschnuppern mit etwas mehr Verbindlichkeit.",
+      "sparhinweis": "",
+      "beliebt": false
+    },
+    {
+      "laufzeit": "Flex · monatlich",
+      "preis": "84",
+      "cent": "00",
+      "hinweis": "Maximale Flexibilität — monatlich kündbar, keine Mindestlaufzeit.",
+      "sparhinweis": "",
+      "beliebt": false
+    }
+  ],
+  "kinder": [
+    {
+      "laufzeit": "24 Monate",
+      "preis": "32",
+      "cent": "90",
+      "hinweis": "Langfristige Förderung — dein Kind wächst mit dem Training.",
+      "sparhinweis": "↓ Günstigster Tarif",
+      "beliebt": false
+    },
+    {
+      "laufzeit": "12 Monate",
+      "preis": "37",
+      "cent": "90",
+      "hinweis": "Ein Jahr regelmäßiges Training — der perfekte Einstieg für Kinder.",
+      "sparhinweis": "",
+      "beliebt": true
+    },
+    {
+      "laufzeit": "6 Monate",
+      "preis": "42",
+      "cent": "90",
+      "hinweis": "Ausprobieren mit Abstand — sechs Monate Orientierung ohne große Bindung.",
+      "sparhinweis": "",
+      "beliebt": false
+    },
+    {
+      "laufzeit": "Flex · monatlich",
+      "preis": "47",
+      "cent": "90",
+      "hinweis": "Flexibler Einstieg — monatlich kündbar, jederzeit anpassbar.",
+      "sparhinweis": "",
+      "beliebt": false
+    }
+  ],
+  "anmeldegebuehr": {
+    "betrag": "49,90 €",
+    "titel": "Einmalige Anmeldegebühr: 49,90 €",
+    "text": "Bei Abschluss einer Mitgliedschaft fällt einmalig eine Anmeldegebühr von 49,90 € an — inklusive einem exklusiven Fight&Defense T-Shirt. Alle Preise verstehen sich pro Monat, zahlbar im Voraus für die jeweilige Laufzeit. Das Probetraining ist kostenlos und verpflichtet zu nichts."
+  }
+}

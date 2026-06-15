@@ -1,0 +1,12 @@
+# Netlify-Konfiguration für Fight&Defense
+# Diese Datei sorgt dafür, dass Netlify die Seite korrekt baut und
+# der /admin-Bereich (Decap CMS) erreichbar bleibt.
+
+[build]
+  publish = "."
+
+# Identity-Widget benötigt diese Redirects für den Login-Flow
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
