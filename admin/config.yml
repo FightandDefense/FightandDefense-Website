@@ -41,30 +41,24 @@ collections:
         label: "Preise"
         name: "preise"
         fields:
-          - label: "Erwachsene Tarife"
-            name: "erwachsene"
+          - label: "Tarife"
+            name: "tarife"
             widget: "list"
             label_singular: "Tarif"
-            summary: "{{laufzeit}} – {{preis}},{{cent}} €"
+            summary: "{{name}} ({{altersgruppe}}) – {{laufzeit}} – {{preis}},{{cent}} €"
+            hint: "Jeder Tarif hat einen eigenen Namen, eine Laufzeit, einen Preis und eine Altersgruppe. Reihenfolge per Drag&Drop änderbar."
             fields:
+              - { label: "Name", name: "name", widget: "string", hint: "z.B. Panthers, BJJ, Mini Panthers" }
               - { label: "Laufzeit", name: "laufzeit", widget: "string", hint: "z.B. 12 Monate oder Flex · monatlich" }
+              - label: "Altersgruppe"
+                name: "altersgruppe"
+                widget: "select"
+                options: ["Erwachsene", "Kinder"]
+                default: "Erwachsene"
               - { label: "Preis (Euro, ganze Zahl)", name: "preis", widget: "string", hint: "z.B. 54" }
               - { label: "Preis (Cent, zweistellig)", name: "cent", widget: "string", hint: "z.B. 90" }
               - { label: "Beschreibungstext", name: "hinweis", widget: "text" }
               - { label: "Sparhinweis (optional)", name: "sparhinweis", widget: "string", required: false, hint: "z.B. ↓ Günstigster Tarif – leer lassen wenn keiner" }
-              - { label: "Als 'Beliebt' markieren", name: "beliebt", widget: "boolean", default: false }
-
-          - label: "Kinder & Jugendliche Tarife"
-            name: "kinder"
-            widget: "list"
-            label_singular: "Tarif"
-            summary: "{{laufzeit}} – {{preis}},{{cent}} €"
-            fields:
-              - { label: "Laufzeit", name: "laufzeit", widget: "string" }
-              - { label: "Preis (Euro, ganze Zahl)", name: "preis", widget: "string" }
-              - { label: "Preis (Cent, zweistellig)", name: "cent", widget: "string" }
-              - { label: "Beschreibungstext", name: "hinweis", widget: "text" }
-              - { label: "Sparhinweis (optional)", name: "sparhinweis", widget: "string", required: false }
               - { label: "Als 'Beliebt' markieren", name: "beliebt", widget: "boolean", default: false }
 
           - label: "Anmeldegebühr"

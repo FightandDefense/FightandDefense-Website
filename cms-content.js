@@ -153,6 +153,7 @@
       div.className = "price-card fade-in visible" + (item.beliebt ? " popular" : "");
       div.innerHTML =
         (item.beliebt ? '<div class="popular-badge">Beliebt</div>' : '') +
+        (item.name ? '<div class="price-name" style="font-family:\'Bebas Neue\', sans-serif; font-size:1.3rem; letter-spacing:0.05em; color:var(--white); margin-bottom:0.2rem;">' + item.name + '</div>' : '') +
         '<div class="price-duration">' + item.laufzeit + '</div>' +
         '<div class="price-amount"><sup>€</sup>' + item.preis + '<sub>,' + item.cent + ' / Monat</sub></div>' +
         '<p class="price-note">' + item.hinweis + '</p>' +
@@ -163,10 +164,35 @@
 
   function applyPreise(data) {
     if (!data) return;
-    var erw = document.querySelector('[data-cms="preise-erwachsene"]');
-    var kid = document.querySelector('[data-cms="preise-kinder"]');
-    if (erw && data.erwachsene) renderPriceCards(erw, data.erwachsene);
-    if (kid && data.kinder) renderPriceCards(kid, data.kinder);
+    var container = document.querySelector('[data-cms="preise-gruppen"]');
+    if (container && data.tarife) {
+      container.innerHTML = "";
+      // Reihenfolge der Altersgruppen: Erwachsene zuerst, dann Kinder, dann ggf. weitere
+      var reihenfolge = ["Erwachsene", "Kinder"];
+      var gruppen = {};
+      data.tarife.forEach(function (item) {
+        var key = item.altersgruppe || "Weitere";
+        if (!gruppen[key]) gruppen[key] = [];
+        gruppen[key].push(item);
+      });
+      var alleGruppen = reihenfolge.filter(function (g) { return gruppen[g]; });
+      Object.keys(gruppen).forEach(function (g) {
+        if (alleGruppen.indexOf(g) === -1) alleGruppen.push(g);
+      });
+      alleGruppen.forEach(function (gruppenName) {
+        var wrapper = document.createElement("div");
+        wrapper.className = "fade-in visible";
+        var title = document.createElement("p");
+        title.className = "price-section-title";
+        title.textContent = gruppenName;
+        var grid = document.createElement("div");
+        grid.className = "price-grid";
+        renderPriceCards(grid, gruppen[gruppenName]);
+        wrapper.appendChild(title);
+        wrapper.appendChild(grid);
+        container.appendChild(wrapper);
+      });
+    }
     if (data.anmeldegebuehr) {
       setText('[data-cms="anmelde-titel"]', data.anmeldegebuehr.titel);
       setText('[data-cms="anmelde-text"]', data.anmeldegebuehr.text);
@@ -263,7 +289,7 @@
       fetchJSON(base + "aktuelles.json").then(applyNews);
     }
 
-    if (document.querySelector('[data-cms="preise-erwachsene"]')) {
+    if (document.querySelector('[data-cms="preise-gruppen"]')) {
       fetchJSON(base + "preise.json").then(applyPreise);
     }
 
