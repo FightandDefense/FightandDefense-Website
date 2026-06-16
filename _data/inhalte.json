@@ -21,8 +21,8 @@
     "youtube_link": ""
   },
   "probetraining_formular": {
-    "iframe_code": "<iframe src='https://ext.matool.de/ptformdyn/?hash=198b7bcad93724e9'id='probeForm'scrolling='no'frameborder='0'style='width:100%;max-width:700px;'></iframe><div style='border-top:1px solid grey;border-color:currentColor;color:grey;mix-blend-mode:difference;padding-top:5px;padding-bottom:20px;padding-right:5px;width:100%;max-width:700px;text-align:right'><a href='https://www.matool.de'style='text-decoration:none;color:grey;mix-blend-mode:difference;font-family:Helvetica,Arial,sans-serif;font-size:x-small;'target='_blank'>made by MATOOL</a></div><script type='text/javascript'>/*<![CDATA[*/function mm(){var n=25;var h=10;var k=0;var d=document.getElementById('probeForm');var f;var b=window.addEventListener?'addEventListener':'attachEvent';var c=window[b];var o=b=='attachEvent'?'onmessage':'message';c(o,function(e){if(e.data===parseInt(e.data)){if(e.data==99999999){var g=function(m,l){var s=document.scrollingElement||document.documentElement,q=s.scrollTop,p=m-q,r=+new Date(),a=function(v,u,x,w){v/=w/2;if(v<1){return x/2*v*v+u}v--;return -x/2*(v*(v-2)-1)+u},i=function(){var v=+new Date();var t=v-r;s.scrollTop=parseInt(a(t,q,p,l));if(t<l){requestAnimationFrame(i)}else{s.scrollTop=m}};i()};g(d.getBoundingClientRect().top+document.documentElement.scrollTop-(Math.max(document.documentElement.clientHeight,window.innerHeight||0)/2),500)}else{f=e.data}}},false);var j=window.setInterval(function(){var a=d.offsetHeight;k=Math.round((f-a)/h);k=Math.abs(k);if(k<1){k=0}if(f>0&&f!=a){if((f-a)>0){d.height=(a+k)+'px'}else{d.height=(a-k)+'px'}}},n)}mm();/*]]>*/</script>",
-    "hoehe": 1500
+    "iframe_code": "",
+    "hoehe": 600
   },
   "cta_strip": {
     "headline_teil1": "Fit für die Straße. Stark im Ring.",
@@ -37,17 +37,17 @@
     "beschreibung": "Bei Fight&Defense verbinden wir bewährte Selbstverteidigungssysteme mit modernen Kampfsportmethoden zu einem Training, das für jeden funktioniert — egal ob du heute zum ersten Mal eine Sporthalle betrittst oder bereits jahrelange Erfahrung mitbringst. Unser Ansatz ist adaptiv: Techniken, Intensität und Anforderungen werden auf dein Niveau und deine Ziele abgestimmt. Du wirst gefordert — aber nie überfordert.",
     "karten": [
       {
-        "icon_label": "Selfdefense Class",
+        "icon_label": "Selbstverteidigung",
         "titel": "Effektiv. Real. Skalierbar.",
         "text": "Selbstverteidigung ist keine Sportart — sie ist eine Lebenskompetenz. Wir vermitteln Techniken und Strategien, die in realen Bedrohungssituationen zuverlässig funktionieren. Der Einsatz von Gewalt wird dabei konsequent skaliert: situationsangepasst, verhältnismäßig und mit klarem Kopf. Du lernst, Gefahren frühzeitig zu erkennen, zu deeskalieren und — wenn nötig — entschlossen zu handeln. Kein System schränkt uns ein: Wir nutzen, was funktioniert."
       },
       {
         "icon_label": "Kampfsport",
-        "titel": "Fighters Class / BJJ",
+        "titel": "BJJ · MMA · Boxen · Kickboxen · Judo",
         "text": "Unser Kampfsportbereich vereint die besten Disziplinen unter einem Dach. Trainer mit Erfahrung in Brazilian Jiu-Jitsu, MMA, Boxen, Kickboxen und Judo bilden ein Trainerteam, das jeden Aspekt des Kampfsports abdeckt — vom Standup über den Clinch bis zum Boden. Das Training steigert nicht nur technische Fähigkeiten, sondern auch Kondition, Koordination und mentale Stärke."
       },
       {
-        "icon_label": "Fitness Class",
+        "icon_label": "Fitness",
         "titel": "Stark. Funktional. Kampforientiert.",
         "text": "Unser Fitnesstraining ist kein gewöhnliches Gym-Workout — es ist kampfsportorientiertes Konditionstraining, das dich gezielt auf die Anforderungen im Ring und im echten Leben vorbereitet. Kraftausdauer, Explosivität, Beweglichkeit und mentale Belastbarkeit stehen im Mittelpunkt. Für Einsteiger und Fortgeschrittene gleichermaßen konzipiert."
       }
