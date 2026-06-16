@@ -212,3 +212,54 @@ collections:
                   - { label: "Kategorie-Label (klein, über dem Titel)", name: "icon_label", widget: "string", hint: "z.B. Selbstverteidigung, Kampfsport, Fitness" }
                   - { label: "Titel", name: "titel", widget: "string" }
                   - { label: "Text", name: "text", widget: "text" }
+
+  # ============ IMPRESSUM ============
+  - name: "impressum"
+    label: "Impressum"
+    files:
+      - file: "_data/impressum.json"
+        label: "Impressum"
+        name: "impressum"
+        fields:
+          - label: "Angaben gemäß § 5 TMG"
+            name: "angaben"
+            widget: "object"
+            fields:
+              - { label: "Überschrift", name: "h", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Kontakt"
+            name: "kontakt_impressum"
+            widget: "object"
+            fields:
+              - { label: "Überschrift", name: "h", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Steuerliche Angaben"
+            name: "steuer"
+            widget: "object"
+            fields:
+              - { label: "Überschrift", name: "h", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Verantwortlich für den Inhalt"
+            name: "inhalt"
+            widget: "object"
+            fields:
+              - { label: "Überschrift", name: "h", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Haftungsausschluss"
+            name: "haftung"
+            widget: "object"
+            fields:
+              - { label: "Überschrift", name: "h", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Haftung für Links"
+            name: "links"
+            widget: "object"
+            fields:
+              - { label: "Überschrift", name: "h", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Urheberrecht"
+            name: "urheberrecht"
+            widget: "object"
+            fields:
+              - { label: "Überschrift", name: "h", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
