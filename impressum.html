@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – Fight & Defense</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0c10;
+      --card: #111318;
+      --blue: #00bcd4;
+      --white: #f0f2f5;
+      --muted: #8a8f9a;
+      --border: #1e2028;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,12,16,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.4rem 0.7rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); background: var(--border); }
+    .nav-links a.active { color: var(--blue); }
+
+    .nav-links a.btn-nav {
+      background: var(--blue);
+      color: var(--bg);
+      padding: 0.4rem 1rem;
+      font-weight: 700;
+    }
+
+    .nav-links a.btn-nav:hover { background: #00a5bb; }
+
+    .nav-links a.btn-yt {
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .nav-links a.btn-yt:hover { border-color: var(--blue); color: var(--blue); background: transparent; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding: 4rem 2rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    /* ===== IMPRESSUM CONTENT ===== */
+    .impressum-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .impressum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+      gap: 2rem;
+    }
+
+    .impressum-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 2rem 1.8rem;
+    }
+
+    .impressum-block h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: var(--blue);
+      margin-bottom: 0.8rem;
+    }
+
+    .impressum-block p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    /* Haftungs- und Urheberrechtsblöcke über volle Breite */
+    .impressum-block.full-width {
+      grid-column: 1 / -1;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span { color: var(--blue); }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--blue); }
+
+    .footer-copy {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .impressum-block.full-width { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Fight <span>&</span> Defense</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="aktuelles.html">Aktuelles</a></li>
+        <li><a href="seminare.html">Seminare</a></li>
+        <li><a href="preise.html">Preise</a></li>
+        <li><a href="trainerausbildung.html">Trainerausbildung</a></li>
+        <li><a href="impressum.html" class="active">Impressum</a></li>
+        <li><a href="https://www.youtube.com/@FightandDefense" target="_blank" class="btn-yt">YouTube</a></li>
+        <li><a href="index.html#probetraining" class="btn-nav">Probetraining</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-label">Rechtliches</p>
+      <h1 class="page-title">Impressum</h1>
+    </div>
+  </div>
+
+  <!-- IMPRESSUM CONTENT -->
+  <section class="impressum-section">
+    <div class="impressum-grid">
+
+      <!-- Angaben gemäß § 5 TMG -->
+      <div class="impressum-block">
+        <h2 data-cms="impressum-h-angaben">Angaben gemäß § 5 TMG</h2>
+        <p data-cms="impressum-angaben">Fight &amp; Defense GbR<br>Steffan Ziebarth &amp; Kathrin Richter<br>Auf dem Schmaarkamp 1b<br>21339 Lüneburg</p>
+      </div>
+
+      <!-- Kontakt -->
+      <div class="impressum-block">
+        <h2 data-cms="impressum-h-kontakt_impressum">Kontakt</h2>
+        <p data-cms="impressum-kontakt_impressum">Telefon: 0178-8346838<br>E-Mail: info@fightanddefense.de</p>
+      </div>
+
+      <!-- Steuerliche Angaben -->
+      <div class="impressum-block">
+        <h2 data-cms="impressum-h-steuer">Steuerliche Angaben</h2>
+        <p data-cms="impressum-steuer">Steuernummer: wird nachgetragen, sobald erteilt<br>Umsatzsteuer-Identifikationsnummer: entfällt (Kleinunternehmer)</p>
+      </div>
+
+      <!-- Verantwortlich für den Inhalt -->
+      <div class="impressum-block">
+        <h2 data-cms="impressum-h-inhalt">Verantwortlich für den Inhalt</h2>
+        <p data-cms="impressum-inhalt">Steffan Ziebarth<br>Auf dem Schmaarkamp 1b<br>21339 Lüneburg</p>
+      </div>
+
+      <!-- Haftungsausschluss – volle Breite -->
+      <div class="impressum-block full-width">
+        <h2 data-cms="impressum-h-haftung">Haftungsausschluss</h2>
+        <p data-cms="impressum-haftung">Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+      </div>
+
+      <!-- Haftung für Links – volle Breite -->
+      <div class="impressum-block full-width">
+        <h2 data-cms="impressum-h-links">Haftung für Links</h2>
+        <p data-cms="impressum-links">Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben.</p>
+      </div>
+
+      <!-- Urheberrecht – volle Breite -->
+      <div class="impressum-block full-width">
+        <h2 data-cms="impressum-h-urheberrecht">Urheberrecht</h2>
+        <p data-cms="impressum-urheberrecht">Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Fight <span>&</span> Defense</div>
+      <div class="footer-links">
+        <a href="index.html">Start</a>
+        <a href="aktuelles.html">Aktuelles</a>
+        <a href="seminare.html">Seminare</a>
+        <a href="preise.html">Preise</a>
+        <a href="trainerausbildung.html">Trainerausbildung</a>
+        <a href="impressum.html">Impressum</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Fight &amp; Defense GbR · Lüneburg · <a data-cms="kontakt-email" href="mailto:info@fightanddefense.de" style="color: var(--muted); text-decoration:none;">info@fightanddefense.de</a></p>
+    </div>
+  </footer>
+
+  <script src="cms-content.js"></script>
+</body>
+</html>
