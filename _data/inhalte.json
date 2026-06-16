@@ -37,17 +37,17 @@
     "beschreibung": "Bei Fight&Defense verbinden wir bewährte Selbstverteidigungssysteme mit modernen Kampfsportmethoden zu einem Training, das für jeden funktioniert — egal ob du heute zum ersten Mal eine Sporthalle betrittst oder bereits jahrelange Erfahrung mitbringst. Unser Ansatz ist adaptiv: Techniken, Intensität und Anforderungen werden auf dein Niveau und deine Ziele abgestimmt. Du wirst gefordert — aber nie überfordert.",
     "karten": [
       {
-        "icon_label": "Selbstverteidigung",
+        "icon_label": "Selfdefense Class",
         "titel": "Effektiv. Real. Skalierbar.",
         "text": "Selbstverteidigung ist keine Sportart — sie ist eine Lebenskompetenz. Wir vermitteln Techniken und Strategien, die in realen Bedrohungssituationen zuverlässig funktionieren. Der Einsatz von Gewalt wird dabei konsequent skaliert: situationsangepasst, verhältnismäßig und mit klarem Kopf. Du lernst, Gefahren frühzeitig zu erkennen, zu deeskalieren und — wenn nötig — entschlossen zu handeln. Kein System schränkt uns ein: Wir nutzen, was funktioniert."
       },
       {
         "icon_label": "Kampfsport",
-        "titel": "BJJ · MMA · Boxen · Kickboxen · Judo",
+        "titel": "Fighters Class / BJJ",
         "text": "Unser Kampfsportbereich vereint die besten Disziplinen unter einem Dach. Trainer mit Erfahrung in Brazilian Jiu-Jitsu, MMA, Boxen, Kickboxen und Judo bilden ein Trainerteam, das jeden Aspekt des Kampfsports abdeckt — vom Standup über den Clinch bis zum Boden. Das Training steigert nicht nur technische Fähigkeiten, sondern auch Kondition, Koordination und mentale Stärke."
       },
       {
-        "icon_label": "Fitness",
+        "icon_label": "Fitness Class",
         "titel": "Stark. Funktional. Kampforientiert.",
         "text": "Unser Fitnesstraining ist kein gewöhnliches Gym-Workout — es ist kampfsportorientiertes Konditionstraining, das dich gezielt auf die Anforderungen im Ring und im echten Leben vorbereitet. Kraftausdauer, Explosivität, Beweglichkeit und mentale Belastbarkeit stehen im Mittelpunkt. Für Einsteiger und Fortgeschrittene gleichermaßen konzipiert."
       }
