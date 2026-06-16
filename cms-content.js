@@ -360,5 +360,23 @@
     if (document.querySelector('[data-cms="team-liste"]')) {
       fetchJSON(base + "team.json").then(applyTeam);
     }
+
+    if (document.querySelector('[data-cms="impressum-angaben"]')) {
+      fetchJSON(base + "impressum.json").then(applyImpressum);
+    }
   });
+
+  function applyImpressum(d) {
+    var keys = ["angaben","kontakt_impressum","steuer","inhalt","haftung","links","urheberrecht"];
+    keys.forEach(function(key) {
+      if (!d[key]) return;
+      var hEl = document.querySelector('[data-cms="impressum-h-' + key + '"]');
+      var tEl = document.querySelector('[data-cms="impressum-' + key + '"]');
+      if (hEl && d[key].h) hEl.textContent = d[key].h;
+      if (tEl && d[key].text) {
+        // Preserve newlines as <br>
+        tEl.innerHTML = d[key].text.replace(/\n/g, '<br>');
+      }
+    });
+  }
 })();
