@@ -9,7 +9,7 @@
   },
   "steuer": {
     "h": "Steuerliche Angaben",
-    "text": "Steuernummer: wird nachgetragen, sobald erteilt\nUmsatzsteuer-Identifikationsnummer: entfällt (Kleinunternehmer)"
+    "text": "Steuernummer: wird nachgetragen, sobald erteilt\n"
   },
   "inhalt": {
     "h": "Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV)",
