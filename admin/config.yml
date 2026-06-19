@@ -175,6 +175,14 @@ collections:
               - { label: "Beschreibungstext 2", name: "text2", widget: "text" }
               - { label: "YouTube-Link (optional)", name: "youtube_link", widget: "string", required: false, hint: "Vollständiger YouTube-Link, z.B. https://www.youtube.com/watch?v=..." }
 
+          - label: "Trainerausbildung-Formular (MATOOL)"
+            name: "trainerausbildung_formular"
+            widget: "object"
+            hint: "Hier kannst du das interne Anfrageformular auf der Trainerausbildungs-Seite durch ein externes MATOOL-Formular ersetzen."
+            fields:
+              - { label: "iframe-Einbettungscode von MATOOL", name: "iframe_code", widget: "text", required: false, hint: "Den kompletten <iframe ...>...</iframe>-Code aus MATOOL hier einfügen. Leer lassen, um das bisherige interne Formular weiter zu verwenden." }
+              - { label: "Höhe des Formulars (in Pixel)", name: "hoehe", widget: "number", default: 600, hint: "Falls das Formular abgeschnitten wirkt oder zu viel Leerraum lässt, hier die Höhe anpassen, z.B. 600, 750, 900." }
+
           - label: "Probetraining-Formular (MATOOL)"
             name: "probetraining_formular"
             widget: "object"
