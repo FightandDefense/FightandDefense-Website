@@ -1006,7 +1006,17 @@
   </div>
 </section>
 
-
+<!-- AKTUELLER STUNDENPLAN -->
+<section style="background:var(--dark); padding:2rem 2rem 5rem; border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <p class="section-label fade-in">Trainingszeiten</p>
+    <h2 class="section-title fade-in">Aktueller <span>Stundenplan</span></h2>
+    <div class="divider fade-in"></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;" data-cms="stundenplan-kacheln">
+      <!-- Wird automatisch aus /_data/stundenplan.json befüllt -->
+    </div>
+  </div>
+</section>
 
 
 

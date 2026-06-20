@@ -325,6 +325,29 @@
     });
   }
 
+  // ---------- STUNDENPLAN (KACHELFORM, z.B. Preise-Seite) ----------
+  function applyStundenplanKacheln(data) {
+    if (!data || !data.tage) return;
+    var container = document.querySelector('[data-cms="stundenplan-kacheln"]');
+    if (!container) return;
+    container.innerHTML = "";
+    data.tage.forEach(function (tag) {
+      var card = document.createElement("div");
+      card.className = "form-card fade-in visible";
+      card.style.paddingTop = "1.8rem";
+      var rows = (tag.kurse || []).map(function (k) {
+        return '<div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">' +
+          '<span style="color: var(--muted); font-family: \'Barlow Condensed\', sans-serif; font-weight: 600;">' + k.zeit + '</span>' +
+          '<span style="color: var(--white); font-weight: 500; text-align: right;">' + k.name + '</span></div>';
+      }).join("");
+      card.innerHTML =
+        '<div class="form-card-accent" style="background: linear-gradient(90deg, var(--blue), var(--blue2));"></div>' +
+        '<h3 class="form-card-title">' + tag.tag + '</h3>' +
+        '<div style="margin-top: 0.8rem;">' + (rows || '<p style="color: var(--muted); font-size: 0.9rem;">Kein Training</p>') + '</div>';
+      container.appendChild(card);
+    });
+  }
+
   // ---------- TEAM ----------
   function applyTeam(data) {
     if (!data || !data.team) return;
@@ -375,6 +398,10 @@
 
     if (document.querySelector('[data-cms="stundenplan"]')) {
       fetchJSON(base + "stundenplan.json").then(applyStundenplan);
+    }
+
+    if (document.querySelector('[data-cms="stundenplan-kacheln"]')) {
+      fetchJSON(base + "stundenplan.json").then(applyStundenplanKacheln);
     }
 
     if (document.querySelector('[data-cms="team-liste"]')) {
