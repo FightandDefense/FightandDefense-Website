@@ -91,35 +91,7 @@
     .nav-burger.open span:nth-child(2) { opacity: 0; }
     .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    .nav-links.mobile-dropdown {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: fixed;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: rgba(8,10,12,0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0.5rem 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .nav-links.mobile-dropdown.open {
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .nav-links.mobile-dropdown li {
-      width: 100%;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-links.mobile-dropdown li:last-child { border-bottom: none; }
-    .nav-links.mobile-dropdown a {
-      display: block;
-      padding: 1rem 2rem;
-    }
+
 
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -760,6 +732,36 @@
       .nav-burger { display: flex; }
       .forms-grid { grid-template-columns: 1fr; }
       .training-grid { grid-template-columns: 1fr; gap: 0; }
+
+      .nav-links.mobile-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(8,10,12,0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .nav-links.mobile-dropdown.open {
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .nav-links.mobile-dropdown li {
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.mobile-dropdown li:last-child { border-bottom: none; }
+      .nav-links.mobile-dropdown a {
+        display: block;
+        padding: 1rem 2rem;
+      }
     }
   
     /* Social Media Buttons */
