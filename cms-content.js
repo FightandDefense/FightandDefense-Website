@@ -91,12 +91,54 @@
   }
 
   // ---------- STARTSEITE: AKTUELLES-HIGHLIGHT ----------
+  // Zeigt automatisch den als "hervorgehoben" markierten News-Beitrag aus
+  // aktuelles.json an. Gibt es keinen, wird ersatzweise auf das manuelle
+  // Feld highlight_seminar aus inhalte.json zurückgegriffen (Fallback).
   function applyHighlight(data) {
     if (!data || !data.highlight_seminar) return;
     var h = data.highlight_seminar;
     setText('[data-cms="highlight-titel"]', h.titel);
     setText('[data-cms="highlight-datum"]', h.datum);
     setText('[data-cms="highlight-text"]', h.text);
+  }
+
+  function applyHighlightFromNews(newsData) {
+    if (!newsData || !newsData.news || !newsData.news.length) return false;
+    var featured = newsData.news.find(function (item) { return item.hervorgehoben; });
+    if (!featured) return false;
+
+    setText('[data-cms="highlight-titel"]', featured.titel);
+    setText('[data-cms="highlight-datum"]', featured.datum);
+    setText('[data-cms="highlight-text"]', featured.text);
+
+    // Bild ergänzen, falls vorhanden (Highlight-Block hatte bisher kein <img>)
+    var titelEl = document.querySelector('[data-cms="highlight-titel"]');
+    if (titelEl) {
+      var wrapper = titelEl.closest('div');
+      var existingImg = wrapper ? wrapper.querySelector('[data-cms="highlight-bild"]') : null;
+      if (featured.bild) {
+        if (!existingImg && wrapper) {
+          existingImg = document.createElement('img');
+          existingImg.setAttribute('data-cms', 'highlight-bild');
+          existingImg.setAttribute('style',
+            'width:100%; max-height:280px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;');
+          wrapper.insertBefore(existingImg, wrapper.firstChild);
+        }
+        if (existingImg) {
+          existingImg.src = featured.bild;
+          existingImg.alt = featured.titel || '';
+          existingImg.style.display = '';
+        }
+      } else if (existingImg) {
+        existingImg.style.display = 'none';
+      }
+    }
+
+    // "Details ansehen"-Button auf die Aktuelles-Seite verlinken
+    var detailLink = document.querySelector('#latest-news-bottom a.btn-secondary');
+    if (detailLink) detailLink.href = 'aktuelles.html';
+
+    return true;
   }
 
   // ---------- STARTSEITE: CTA-STREIFEN ----------
@@ -376,13 +418,21 @@
     fetchJSON(base + "inhalte.json").then(function (data) {
       applyKontakt(data);
       applyHero(data);
-      applyHighlight(data);
+      applyHighlight(data); // Fallback: manueller Text aus inhalte.json
       applyTrainerausbildung(data);
       applyProbetrainingFormular(data);
       applyTrainerausbildungFormular(data);
       applyCtaStrip(data);
       applyTrainingBereich(data);
     });
+
+    // Highlight-Block auf der Startseite: bevorzugt automatisch aus dem
+    // hervorgehobenen News-Beitrag befüllen (überschreibt den Fallback oben).
+    if (document.querySelector('[data-cms="highlight-titel"]')) {
+      fetchJSON(base + "aktuelles.json").then(function (newsData) {
+        applyHighlightFromNews(newsData);
+      });
+    }
 
     if (document.querySelector('[data-cms="news-liste"]')) {
       fetchJSON(base + "aktuelles.json").then(applyNews);
