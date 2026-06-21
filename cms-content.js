@@ -424,15 +424,16 @@
       applyTrainerausbildungFormular(data);
       applyCtaStrip(data);
       applyTrainingBereich(data);
-    });
 
-    // Highlight-Block auf der Startseite: bevorzugt automatisch aus dem
-    // hervorgehobenen News-Beitrag befüllen (überschreibt den Fallback oben).
-    if (document.querySelector('[data-cms="highlight-titel"]')) {
-      fetchJSON(base + "aktuelles.json").then(function (newsData) {
-        applyHighlightFromNews(newsData);
-      });
-    }
+      // Highlight-Block auf der Startseite: danach bevorzugt automatisch aus
+      // dem hervorgehobenen News-Beitrag befüllen (überschreibt den Fallback
+      // oben garantiert, da dieser fetch erst NACH inhalte.json startet).
+      if (document.querySelector('[data-cms="highlight-titel"]')) {
+        fetchJSON(base + "aktuelles.json").then(function (newsData) {
+          applyHighlightFromNews(newsData);
+        });
+      }
+    });
 
     if (document.querySelector('[data-cms="news-liste"]')) {
       fetchJSON(base + "aktuelles.json").then(applyNews);
