@@ -316,34 +316,104 @@
   // ---------- SEMINARE ----------
   function applySeminare(data) {
     if (!data) return;
-    var container = document.querySelector('[data-cms="seminare-liste"]');
+    var wrapper = document.querySelector('[data-cms="seminare-liste"]');
     var placeholder = document.querySelector('[data-cms="seminare-platzhalter"]');
-    if (!container) return;
+    if (!wrapper) return;
     if (!data.seminare || data.seminare.length === 0) {
       if (placeholder) placeholder.style.display = "";
-      container.style.display = "none";
+      wrapper.style.display = "none";
       return;
     }
     if (placeholder) placeholder.style.display = "none";
-    container.style.display = "";
-    container.innerHTML = "";
+    wrapper.style.display = "";
+    wrapper.innerHTML = "";
+
+    // Kategorien ermitteln (nur vorhandene, in Reihenfolge: Alle zuerst)
+    var kategorienSet = [];
+    data.seminare.forEach(function (s) {
+      var k = (s.kategorie || "").trim();
+      if (k && kategorienSet.indexOf(k) === -1) kategorienSet.push(k);
+    });
+    var hatKategorien = kategorienSet.length > 0;
+
+    // Filterleiste (nur wenn mindestens eine Kategorie vergeben)
+    if (hatKategorien) {
+      var filterBar = document.createElement("div");
+      filterBar.setAttribute("style",
+        "display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:2rem;");
+      filterBar.setAttribute("data-seminare-filter", "");
+
+      var alleBtn = document.createElement("button");
+      alleBtn.textContent = "Alle";
+      alleBtn.setAttribute("data-filter", "alle");
+      alleBtn.setAttribute("style", getSeminarBtnStyle(true));
+      filterBar.appendChild(alleBtn);
+
+      kategorienSet.forEach(function (k) {
+        var btn = document.createElement("button");
+        btn.textContent = k;
+        btn.setAttribute("data-filter", k);
+        btn.setAttribute("style", getSeminarBtnStyle(false));
+        filterBar.appendChild(btn);
+      });
+
+      wrapper.appendChild(filterBar);
+
+      filterBar.addEventListener("click", function (e) {
+        var btn = e.target.closest("button[data-filter]");
+        if (!btn) return;
+        var aktiv = btn.getAttribute("data-filter");
+        filterBar.querySelectorAll("button[data-filter]").forEach(function (b) {
+          b.setAttribute("style", getSeminarBtnStyle(b === btn));
+        });
+        wrapper.querySelectorAll("[data-seminar-card]").forEach(function (card) {
+          var kat = card.getAttribute("data-kategorie") || "";
+          var zeigen = aktiv === "alle" || kat === aktiv;
+          card.style.display = zeigen ? "" : "none";
+        });
+      });
+    }
+
+    // Karten-Container
+    var cardsContainer = document.createElement("div");
+    cardsContainer.setAttribute("data-seminare-cards", "");
+    wrapper.appendChild(cardsContainer);
+
     data.seminare.forEach(function (s) {
       var div = document.createElement("div");
       div.className = "fade-in visible";
+      div.setAttribute("data-seminar-card", "");
+      div.setAttribute("data-kategorie", (s.kategorie || "").trim());
       div.setAttribute("style",
         "background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;");
+
+      var badgeHtml = "";
+      if (s.kategorie && s.kategorie.trim()) {
+        badgeHtml = '<span style="display:inline-block; background: rgba(26,184,232,0.12); color: var(--blue); font-family:\'Barlow Condensed\',sans-serif; font-weight:700; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; padding:3px 10px; border-radius:4px; margin-bottom:0.8rem;">' + s.kategorie.trim() + '</span><br>';
+      }
+
+      var textHtml = (s.text || "").replace(/\n\n/g, '</p><p style="color:var(--muted);line-height:1.6;margin-top:0.8rem;">').replace(/\n/g, '<br>');
+
       var html =
-        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:320px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">' : '') +
+        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:280px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">' : '') +
+        badgeHtml +
         '<span style="color: var(--blue); font-weight: 600; font-size: 0.9rem;">' + (s.datum || "") + '</span>' +
         '<h3 style="font-family: \'Bebas Neue\'; font-size: 2rem; margin: 10px 0;">' + (s.titel || "") + '</h3>' +
-        '<p style="color: var(--muted); line-height: 1.6;">' + (s.text || "") + '</p>' +
+        '<p style="color: var(--muted); line-height: 1.6;">' + textHtml + '</p>' +
         renderGallery(s.galerie);
       if (s.link) {
-        html += '<a href="' + s.link + '" class="btn btn-secondary" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.6rem; background: transparent; border: 1px solid var(--blue); color: var(--blue); text-decoration: none; font-family: \'Barlow Condensed\', sans-serif; font-weight: 700; text-transform: uppercase;">Mehr erfahren</a>';
+        html += '<a href="' + s.link + '" target="_blank" rel="noopener" class="btn btn-secondary" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.6rem; background: transparent; border: 1px solid var(--blue); color: var(--blue); text-decoration: none; font-family: \'Barlow Condensed\', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Jetzt anmelden</a>';
       }
       div.innerHTML = html;
-      container.appendChild(div);
+      cardsContainer.appendChild(div);
     });
+  }
+
+  function getSeminarBtnStyle(aktiv) {
+    return "padding: 0.45rem 1.2rem; border-radius: 4px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.2s, color 0.2s;" +
+      (aktiv
+        ? "background: var(--blue); color: var(--black); border: 1px solid var(--blue);"
+        : "background: transparent; color: var(--muted); border: 1px solid var(--border);");
   }
 
   // ---------- STUNDENPLAN ----------
