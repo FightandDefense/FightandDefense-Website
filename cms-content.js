@@ -369,14 +369,16 @@
         wrapper.querySelectorAll("[data-seminar-card]").forEach(function (card) {
           var kat = card.getAttribute("data-kategorie") || "";
           var zeigen = aktiv === "alle" || kat === aktiv;
-          card.style.display = zeigen ? "" : "none";
+          card.style.display = zeigen ? "flex" : "none";
         });
       });
     }
 
-    // Karten-Container
+    // Karten-Container als Grid
     var cardsContainer = document.createElement("div");
     cardsContainer.setAttribute("data-seminare-cards", "");
+    cardsContainer.setAttribute("style",
+      "display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:1.5rem;");
     wrapper.appendChild(cardsContainer);
 
     data.seminare.forEach(function (s) {
@@ -385,7 +387,7 @@
       div.setAttribute("data-seminar-card", "");
       div.setAttribute("data-kategorie", (s.kategorie || "").trim());
       div.setAttribute("style",
-        "background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;");
+        "background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; display:flex; flex-direction:column;");
 
       var badgeHtml = "";
       if (s.kategorie && s.kategorie.trim()) {
@@ -395,14 +397,14 @@
       var textHtml = (s.text || "").replace(/\n\n/g, '</p><p style="color:var(--muted);line-height:1.6;margin-top:0.8rem;">').replace(/\n/g, '<br>');
 
       var html =
-        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:280px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">' : '') +
+        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:200px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">' : '') +
         badgeHtml +
         '<span style="color: var(--blue); font-weight: 600; font-size: 0.9rem;">' + (s.datum || "") + '</span>' +
-        '<h3 style="font-family: \'Bebas Neue\'; font-size: 2rem; margin: 10px 0;">' + (s.titel || "") + '</h3>' +
-        '<p style="color: var(--muted); line-height: 1.6;">' + textHtml + '</p>' +
+        '<h3 style="font-family: \'Bebas Neue\'; font-size: 1.8rem; margin: 8px 0 10px;">' + (s.titel || "") + '</h3>' +
+        '<p style="color: var(--muted); line-height: 1.6; flex:1;">' + textHtml + '</p>' +
         renderGallery(s.galerie);
       if (s.link) {
-        html += '<a href="' + s.link + '" target="_blank" rel="noopener" class="btn btn-secondary" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.6rem; background: transparent; border: 1px solid var(--blue); color: var(--blue); text-decoration: none; font-family: \'Barlow Condensed\', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Jetzt anmelden</a>';
+        html += '<a href="' + s.link + '" target="_blank" rel="noopener" style="display:inline-block; margin-top:1.2rem; padding:0.6rem 1.6rem; background:transparent; border:1px solid var(--blue); color:var(--blue); text-decoration:none; font-family:\'Barlow Condensed\',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; align-self:flex-start;">Jetzt anmelden</a>';
       }
       div.innerHTML = html;
       cardsContainer.appendChild(div);
