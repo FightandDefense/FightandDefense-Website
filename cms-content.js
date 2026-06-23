@@ -394,7 +394,10 @@
         badgeHtml = '<span style="display:inline-block; background: rgba(26,184,232,0.12); color: var(--blue); font-family:\'Barlow Condensed\',sans-serif; font-weight:700; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; padding:3px 10px; border-radius:4px; margin-bottom:0.8rem;">' + s.kategorie.trim() + '</span><br>';
       }
 
-      var textHtml = (s.text || "").replace(/\n\n/g, '</p><p style="color:var(--muted);line-height:1.6;margin-top:0.8rem;">').replace(/\n/g, '<br>');
+      var kurzText = window.innerWidth < 600 && (s.text || "").length > 120
+        ? s.text.substring(0, 120).trim() + "…"
+        : (s.text || "");
+      var textHtml = kurzText.replace(/\n\n/g, '</p><p style="color:var(--muted);line-height:1.6;margin-top:0.8rem;">').replace(/\n/g, '<br>');
 
       var html =
         (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:' + (window.innerWidth < 600 ? '120px' : '200px') + '; object-fit:cover; border-radius:6px; margin-bottom:0.8rem;">' : '') +
