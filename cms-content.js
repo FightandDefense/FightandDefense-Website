@@ -378,7 +378,7 @@
     var cardsContainer = document.createElement("div");
     cardsContainer.setAttribute("data-seminare-cards", "");
     cardsContainer.setAttribute("style",
-      "display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:1.5rem;");
+      "display:grid; grid-template-columns: repeat(auto-fill, minmax(" + (window.innerWidth < 600 ? "150px" : "320px") + ", 1fr)); gap:" + (window.innerWidth < 600 ? "0.8rem" : "1.5rem") + ";");
     wrapper.appendChild(cardsContainer);
 
     data.seminare.forEach(function (s) {
@@ -387,7 +387,7 @@
       div.setAttribute("data-seminar-card", "");
       div.setAttribute("data-kategorie", (s.kategorie || "").trim());
       div.setAttribute("style",
-        "background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; display:flex; flex-direction:column;");
+        "background: var(--card); border: 1px solid var(--border); padding: " + (window.innerWidth < 600 ? "1rem" : "1.5rem") + "; border-radius: 8px; display:flex; flex-direction:column;");
 
       var badgeHtml = "";
       if (s.kategorie && s.kategorie.trim()) {
@@ -397,10 +397,10 @@
       var textHtml = (s.text || "").replace(/\n\n/g, '</p><p style="color:var(--muted);line-height:1.6;margin-top:0.8rem;">').replace(/\n/g, '<br>');
 
       var html =
-        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:200px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">' : '') +
+        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:' + (window.innerWidth < 600 ? '120px' : '200px') + '; object-fit:cover; border-radius:6px; margin-bottom:0.8rem;">' : '') +
         badgeHtml +
         '<span style="color: var(--blue); font-weight: 600; font-size: 0.9rem;">' + (s.datum || "") + '</span>' +
-        '<h3 style="font-family: \'Bebas Neue\'; font-size: 1.8rem; margin: 8px 0 10px;">' + (s.titel || "") + '</h3>' +
+        '<h3 style="font-family: \'Bebas Neue\'; font-size: ' + (window.innerWidth < 600 ? '1.3rem' : '1.8rem') + '; margin: 6px 0 8px; line-height:1.2;">' + (s.titel || "") + '</h3>' +
         '<p style="color: var(--muted); line-height: 1.6; flex:1;">' + textHtml + '</p>' +
         renderGallery(s.galerie);
       if (s.link) {
