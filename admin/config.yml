@@ -84,6 +84,20 @@ collections:
             summary: "{{titel}} – {{datum}}"
             fields:
               - { label: "Titel", name: "titel", widget: "string" }
+              - label: "Kategorie"
+                name: "kategorie"
+                widget: "select"
+                options:
+                  - { label: "Selbstverteidigung", value: "Selbstverteidigung" }
+                  - { label: "Kampfsport", value: "Kampfsport" }
+                  - { label: "Fitness", value: "Fitness" }
+                  - { label: "Für Frauen", value: "Für Frauen" }
+                  - { label: "Für Kinder & Jugendliche", value: "Für Kinder & Jugendliche" }
+                  - { label: "Firmen & Gruppen", value: "Firmen & Gruppen" }
+                  - { label: "Sonstiges", value: "Sonstiges" }
+                default: "Selbstverteidigung"
+                required: false
+                hint: "Kategorie wird als Filter-Button auf der Seminare-Seite angezeigt. Leer lassen = kein Filter."
               - { label: "Datum & Uhrzeit", name: "datum", widget: "string", hint: "z.B. Samstag, 25. April 2026 | 10:00 – 14:00 Uhr" }
               - { label: "Beschreibung", name: "text", widget: "text" }
               - { label: "Titelbild (optional)", name: "bild", widget: "image", required: false }
