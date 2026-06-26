@@ -99,6 +99,15 @@
       "hinweis": "Perfekt für maximale Flexibilität! ",
       "sparhinweis": "",
       "beliebt": false
+    },
+    {
+      "altersgruppe": "Erwachsene",
+      "beliebt": false,
+      "name": "Personal Training (PT)",
+      "laufzeit": "-",
+      "preis": "119",
+      "cent": "00",
+      "hinweis": "Erhalte ein persönliches und individuelles Training auch außerhalb der regulären Trainingszeiten. Bei dem PT handelt es sich um eine 1:1 Betreuung, in der wir gezielt auf deine Ziele und Bedürfnisse eingehen. Der Preis ist je Stunde. "
     }
   ],
   "anmeldegebuehr": {
