@@ -91,54 +91,12 @@
   }
 
   // ---------- STARTSEITE: AKTUELLES-HIGHLIGHT ----------
-  // Zeigt automatisch den als "hervorgehoben" markierten News-Beitrag aus
-  // aktuelles.json an. Gibt es keinen, wird ersatzweise auf das manuelle
-  // Feld highlight_seminar aus inhalte.json zurückgegriffen (Fallback).
   function applyHighlight(data) {
     if (!data || !data.highlight_seminar) return;
     var h = data.highlight_seminar;
     setText('[data-cms="highlight-titel"]', h.titel);
     setText('[data-cms="highlight-datum"]', h.datum);
     setText('[data-cms="highlight-text"]', h.text);
-  }
-
-  function applyHighlightFromNews(newsData) {
-    if (!newsData || !newsData.news || !newsData.news.length) return false;
-    var featured = newsData.news.find(function (item) { return item.hervorgehoben; });
-    if (!featured) return false;
-
-    setText('[data-cms="highlight-titel"]', featured.titel);
-    setText('[data-cms="highlight-datum"]', featured.datum);
-    setText('[data-cms="highlight-text"]', featured.text);
-
-    // Bild ergänzen, falls vorhanden (Highlight-Block hatte bisher kein <img>)
-    var titelEl = document.querySelector('[data-cms="highlight-titel"]');
-    if (titelEl) {
-      var wrapper = titelEl.closest('div');
-      var existingImg = wrapper ? wrapper.querySelector('[data-cms="highlight-bild"]') : null;
-      if (featured.bild) {
-        if (!existingImg && wrapper) {
-          existingImg = document.createElement('img');
-          existingImg.setAttribute('data-cms', 'highlight-bild');
-          existingImg.setAttribute('style',
-            'width:100%; max-height:280px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;');
-          wrapper.insertBefore(existingImg, wrapper.firstChild);
-        }
-        if (existingImg) {
-          existingImg.src = featured.bild;
-          existingImg.alt = featured.titel || '';
-          existingImg.style.display = '';
-        }
-      } else if (existingImg) {
-        existingImg.style.display = 'none';
-      }
-    }
-
-    // "Details ansehen"-Button auf die Aktuelles-Seite verlinken
-    var detailLink = document.querySelector('#latest-news-bottom a.btn-secondary');
-    if (detailLink) detailLink.href = 'aktuelles.html';
-
-    return true;
   }
 
   // ---------- STARTSEITE: CTA-STREIFEN ----------
@@ -269,7 +227,7 @@
         (item.beliebt ? '<div class="popular-badge">Beliebt</div>' : '') +
         (item.name ? '<div class="price-name" style="font-family:\'Bebas Neue\', sans-serif; font-size:1.3rem; letter-spacing:0.05em; color:var(--white); margin-bottom:0.2rem;">' + item.name + '</div>' : '') +
         '<div class="price-duration">' + item.laufzeit + '</div>' +
-        '<div class="price-amount"><sup>€</sup>' + item.preis + '<sub>,' + item.cent + ' / Monat</sub></div>' +
+        '<div class="price-amount"><sup>€</sup>' + item.preis + '<sub>,' + item.cent + ' / ' + (item.einheit || 'Monat') + '</sub></div>' +
         '<p class="price-note">' + item.hinweis + '</p>' +
         (item.sparhinweis ? '<p class="price-saving">' + item.sparhinweis + '</p>' : '');
       container.appendChild(div);
@@ -316,109 +274,34 @@
   // ---------- SEMINARE ----------
   function applySeminare(data) {
     if (!data) return;
-    var wrapper = document.querySelector('[data-cms="seminare-liste"]');
+    var container = document.querySelector('[data-cms="seminare-liste"]');
     var placeholder = document.querySelector('[data-cms="seminare-platzhalter"]');
-    if (!wrapper) return;
+    if (!container) return;
     if (!data.seminare || data.seminare.length === 0) {
       if (placeholder) placeholder.style.display = "";
-      wrapper.style.display = "none";
+      container.style.display = "none";
       return;
     }
     if (placeholder) placeholder.style.display = "none";
-    wrapper.style.display = "";
-    wrapper.innerHTML = "";
-
-    // Kategorien ermitteln (nur vorhandene, in Reihenfolge: Alle zuerst)
-    var kategorienSet = [];
-    data.seminare.forEach(function (s) {
-      var k = (s.kategorie || "").trim();
-      if (k && kategorienSet.indexOf(k) === -1) kategorienSet.push(k);
-    });
-    var hatKategorien = kategorienSet.length > 0;
-
-    // Filterleiste (nur wenn mindestens eine Kategorie vergeben)
-    if (hatKategorien) {
-      var filterBar = document.createElement("div");
-      filterBar.setAttribute("style",
-        "display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:2rem;");
-      filterBar.setAttribute("data-seminare-filter", "");
-
-      var alleBtn = document.createElement("button");
-      alleBtn.textContent = "Alle";
-      alleBtn.setAttribute("data-filter", "alle");
-      alleBtn.setAttribute("style", getSeminarBtnStyle(true));
-      filterBar.appendChild(alleBtn);
-
-      kategorienSet.forEach(function (k) {
-        var btn = document.createElement("button");
-        btn.textContent = k;
-        btn.setAttribute("data-filter", k);
-        btn.setAttribute("style", getSeminarBtnStyle(false));
-        filterBar.appendChild(btn);
-      });
-
-      wrapper.appendChild(filterBar);
-
-      filterBar.addEventListener("click", function (e) {
-        var btn = e.target.closest("button[data-filter]");
-        if (!btn) return;
-        var aktiv = btn.getAttribute("data-filter");
-        filterBar.querySelectorAll("button[data-filter]").forEach(function (b) {
-          b.setAttribute("style", getSeminarBtnStyle(b === btn));
-        });
-        wrapper.querySelectorAll("[data-seminar-card]").forEach(function (card) {
-          var kat = card.getAttribute("data-kategorie") || "";
-          var zeigen = aktiv === "alle" || kat === aktiv;
-          card.style.display = zeigen ? "flex" : "none";
-        });
-      });
-    }
-
-    // Karten-Container als Grid
-    var cardsContainer = document.createElement("div");
-    cardsContainer.setAttribute("data-seminare-cards", "");
-    cardsContainer.setAttribute("style",
-      "display:grid; grid-template-columns: repeat(auto-fill, minmax(" + (window.innerWidth < 600 ? "150px" : "320px") + ", 1fr)); gap:" + (window.innerWidth < 600 ? "0.8rem" : "1.5rem") + ";");
-    wrapper.appendChild(cardsContainer);
-
+    container.style.display = "";
+    container.innerHTML = "";
     data.seminare.forEach(function (s) {
       var div = document.createElement("div");
       div.className = "fade-in visible";
-      div.setAttribute("data-seminar-card", "");
-      div.setAttribute("data-kategorie", (s.kategorie || "").trim());
       div.setAttribute("style",
-        "background: var(--card); border: 1px solid var(--border); padding: " + (window.innerWidth < 600 ? "1rem" : "1.5rem") + "; border-radius: 8px; display:flex; flex-direction:column;");
-
-      var badgeHtml = "";
-      if (s.kategorie && s.kategorie.trim()) {
-        badgeHtml = '<span style="display:inline-block; background: rgba(26,184,232,0.12); color: var(--blue); font-family:\'Barlow Condensed\',sans-serif; font-weight:700; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; padding:3px 10px; border-radius:4px; margin-bottom:0.8rem;">' + s.kategorie.trim() + '</span><br>';
-      }
-
-      var kurzText = window.innerWidth < 600 && (s.text || "").length > 120
-        ? s.text.substring(0, 120).trim() + "…"
-        : (s.text || "");
-      var textHtml = kurzText.replace(/\n\n/g, '</p><p style="color:var(--muted);line-height:1.6;margin-top:0.8rem;">').replace(/\n/g, '<br>');
-
+        "background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;");
       var html =
-        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:' + (window.innerWidth < 600 ? '120px' : '200px') + '; object-fit:cover; border-radius:6px; margin-bottom:0.8rem;">' : '') +
-        badgeHtml +
+        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:320px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">' : '') +
         '<span style="color: var(--blue); font-weight: 600; font-size: 0.9rem;">' + (s.datum || "") + '</span>' +
-        '<h3 style="font-family: \'Bebas Neue\'; font-size: ' + (window.innerWidth < 600 ? '1.3rem' : '1.8rem') + '; margin: 6px 0 8px; line-height:1.2;">' + (s.titel || "") + '</h3>' +
-        '<p style="color: var(--muted); line-height: 1.6; flex:1;">' + textHtml + '</p>' +
+        '<h3 style="font-family: \'Bebas Neue\'; font-size: 2rem; margin: 10px 0;">' + (s.titel || "") + '</h3>' +
+        '<p style="color: var(--muted); line-height: 1.6;">' + (s.text || "") + '</p>' +
         renderGallery(s.galerie);
       if (s.link) {
-        html += '<a href="' + s.link + '" target="_blank" rel="noopener" style="display:inline-block; margin-top:1.2rem; padding:0.6rem 1.6rem; background:transparent; border:1px solid var(--blue); color:var(--blue); text-decoration:none; font-family:\'Barlow Condensed\',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; align-self:flex-start;">Jetzt anmelden</a>';
+        html += '<a href="' + s.link + '" class="btn btn-secondary" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.6rem; background: transparent; border: 1px solid var(--blue); color: var(--blue); text-decoration: none; font-family: \'Barlow Condensed\', sans-serif; font-weight: 700; text-transform: uppercase;">Mehr erfahren</a>';
       }
       div.innerHTML = html;
-      cardsContainer.appendChild(div);
+      container.appendChild(div);
     });
-  }
-
-  function getSeminarBtnStyle(aktiv) {
-    return "padding: 0.45rem 1.2rem; border-radius: 4px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.2s, color 0.2s;" +
-      (aktiv
-        ? "background: var(--blue); color: var(--black); border: 1px solid var(--blue);"
-        : "background: transparent; color: var(--muted); border: 1px solid var(--border);");
   }
 
   // ---------- STUNDENPLAN ----------
@@ -493,21 +376,12 @@
     fetchJSON(base + "inhalte.json").then(function (data) {
       applyKontakt(data);
       applyHero(data);
-      applyHighlight(data); // Fallback: manueller Text aus inhalte.json
+      applyHighlight(data);
       applyTrainerausbildung(data);
       applyProbetrainingFormular(data);
       applyTrainerausbildungFormular(data);
       applyCtaStrip(data);
       applyTrainingBereich(data);
-
-      // Highlight-Block auf der Startseite: danach bevorzugt automatisch aus
-      // dem hervorgehobenen News-Beitrag befüllen (überschreibt den Fallback
-      // oben garantiert, da dieser fetch erst NACH inhalte.json startet).
-      if (document.querySelector('[data-cms="highlight-titel"]')) {
-        fetchJSON(base + "aktuelles.json").then(function (newsData) {
-          applyHighlightFromNews(newsData);
-        });
-      }
     });
 
     if (document.querySelector('[data-cms="news-liste"]')) {
