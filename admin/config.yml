@@ -57,6 +57,13 @@ collections:
                 default: "Erwachsene"
               - { label: "Preis (Euro, ganze Zahl)", name: "preis", widget: "string", hint: "z.B. 54" }
               - { label: "Preis (Cent, zweistellig)", name: "cent", widget: "string", hint: "z.B. 90" }
+              - label: "Preiseinheit"
+                name: "einheit"
+                widget: "select"
+                options: ["Monat", "Stunde", "Einheit", "Termin", "Session"]
+                default: "Monat"
+                required: false
+                hint: "Wird hinter dem Preis angezeigt, z.B. '54,90 / Stunde'"
               - { label: "Beschreibungstext", name: "hinweis", widget: "text" }
               - { label: "Sparhinweis (optional)", name: "sparhinweis", widget: "string", required: false, hint: "z.B. ↓ Günstigster Tarif – leer lassen wenn keiner" }
               - { label: "Als 'Beliebt' markieren", name: "beliebt", widget: "boolean", default: false }
@@ -84,20 +91,6 @@ collections:
             summary: "{{titel}} – {{datum}}"
             fields:
               - { label: "Titel", name: "titel", widget: "string" }
-              - label: "Kategorie"
-                name: "kategorie"
-                widget: "select"
-                options:
-                  - { label: "Selbstverteidigung", value: "Selbstverteidigung" }
-                  - { label: "Kampfsport", value: "Kampfsport" }
-                  - { label: "Fitness", value: "Fitness" }
-                  - { label: "Für Frauen", value: "Für Frauen" }
-                  - { label: "Für Kinder & Jugendliche", value: "Für Kinder & Jugendliche" }
-                  - { label: "Firmen & Gruppen", value: "Firmen & Gruppen" }
-                  - { label: "Sonstiges", value: "Sonstiges" }
-                default: "Selbstverteidigung"
-                required: false
-                hint: "Kategorie wird als Filter-Button auf der Seminare-Seite angezeigt. Leer lassen = kein Filter."
               - { label: "Datum & Uhrzeit", name: "datum", widget: "string", hint: "z.B. Samstag, 25. April 2026 | 10:00 – 14:00 Uhr" }
               - { label: "Beschreibung", name: "text", widget: "text" }
               - { label: "Titelbild (optional)", name: "bild", widget: "image", required: false }
