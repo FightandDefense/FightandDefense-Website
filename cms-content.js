@@ -91,12 +91,26 @@
   }
 
   // ---------- STARTSEITE: AKTUELLES-HIGHLIGHT ----------
-  function applyHighlight(data) {
-    if (!data || !data.highlight_seminar) return;
-    var h = data.highlight_seminar;
-    setText('[data-cms="highlight-titel"]', h.titel);
-    setText('[data-cms="highlight-datum"]', h.datum);
-    setText('[data-cms="highlight-text"]', h.text);
+  // Liest automatisch den neuesten hervorgehobenen Beitrag aus aktuelles.json.
+  // Fallback: manuelles highlight_seminar-Feld aus inhalte.json.
+  function applyHighlight(inhalteData) {
+    if (!document.querySelector('[data-cms="highlight-titel"]')) return;
+    fetchJSON("/_data/aktuelles.json").then(function (aktuellesData) {
+      var h = null;
+      if (aktuellesData && aktuellesData.news) {
+        var hervorgehobene = aktuellesData.news.filter(function (n) {
+          return n.hervorgehoben === true;
+        });
+        if (hervorgehobene.length > 0) h = hervorgehobene[0];
+      }
+      if (!h && inhalteData && inhalteData.highlight_seminar) {
+        h = inhalteData.highlight_seminar;
+      }
+      if (!h) return;
+      setText('[data-cms="highlight-titel"]', h.titel);
+      setText('[data-cms="highlight-datum"]', h.datum);
+      setText('[data-cms="highlight-text"]', h.text);
+    });
   }
 
   // ---------- STARTSEITE: CTA-STREIFEN ----------
