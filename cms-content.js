@@ -204,32 +204,31 @@
 
   // ---------- TRAINING IN UELZEN: TEXTE, BILDER & DOWNLOAD ----------
   function applyUelzen(data) {
-    if (!data || !data.training_uelzen) return;
-    var u = data.training_uelzen;
-    setText('[data-cms="uelzen-text1"]', u.text1);
-    setText('[data-cms="uelzen-text2"]', u.text2);
+    if (!data) return;
+    setText('[data-cms="uelzen-text1"]', data.text1);
+    setText('[data-cms="uelzen-text2"]', data.text2);
 
     var galerieBox = document.querySelector('[data-cms="uelzen-galerie"]');
     if (galerieBox) {
-      galerieBox.innerHTML = renderGallery(u.galerie);
+      galerieBox.innerHTML = renderGallery(data.galerie);
     }
 
     var downloadLink = document.querySelector('[data-cms="uelzen-mitgliedsantrag"]');
     if (downloadLink) {
-      if (u.mitgliedsantrag_pdf) {
-        downloadLink.setAttribute("href", u.mitgliedsantrag_pdf);
+      if (data.mitgliedsantrag_pdf) {
+        downloadLink.setAttribute("href", data.mitgliedsantrag_pdf);
         downloadLink.style.display = "";
       } else {
         downloadLink.style.display = "none";
       }
     }
+
+    applyUelzenFormular(data.formular);
   }
 
   // ---------- TRAINING IN UELZEN-FORMULAR (MATOOL oder intern) ----------
-  function applyUelzenFormular(data) {
-    if (!data || !data.uelzen_formular) return;
-    var p = data.uelzen_formular;
-    if (!p.iframe_code) return; // kein Code hinterlegt -> internes Formular bleibt aktiv
+  function applyUelzenFormular(p) {
+    if (!p || !p.iframe_code) return; // kein Code hinterlegt -> internes Formular bleibt aktiv
     var container = document.querySelector('[data-cms="uelzen-formular"]');
     if (!container) return;
     var hoehe = p.hoehe || 600;
@@ -467,8 +466,6 @@
       applyTrainerausbildung(data);
       applyProbetrainingFormular(data);
       applyTrainerausbildungFormular(data);
-      applyUelzen(data);
-      applyUelzenFormular(data);
       applyCtaStrip(data);
       applyTrainingBereich(data);
     });
@@ -495,6 +492,10 @@
 
     if (document.querySelector('[data-cms="stundenplan-uelzen-kacheln"]')) {
       fetchJSON(base + "stundenplan_uelzen.json").then(applyStundenplanUelzen);
+    }
+
+    if (document.querySelector('[data-cms="uelzen-text1"]')) {
+      fetchJSON(base + "training_uelzen.json").then(applyUelzen);
     }
 
     if (document.querySelector('[data-cms="team-liste"]')) {
