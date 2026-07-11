@@ -158,6 +158,58 @@ collections:
           - { label: "Beschreibungstext 2", name: "text2", widget: "text", required: false }
           - { label: "Bilderserie (optional)", name: "galerie", widget: "list", required: false, field: { label: "Bild", name: "bild", widget: "image" }, hint: "Fotos vom Training in Uelzen, werden als Galerie angezeigt" }
           - { label: "Mitgliedsantrag Uelzen (PDF)", name: "mitgliedsantrag_pdf", widget: "file", required: false, hint: "Eigenes PDF für den Standort Uelzen hochladen. Leer lassen, um den Download-Button auf der Seite auszublenden." }
+
+          - label: "Adresse Uelzen"
+            name: "adresse"
+            widget: "object"
+            hint: "Eigene Standort-Adresse für die Uelzen-Seite (Telefon & E-Mail bleiben zentral wie bei Lüneburg)."
+            fields:
+              - { label: "Einrichtung / Name", name: "name", widget: "string", hint: "z.B. Easyfitness Uelzen (ehemals Gym80)" }
+              - { label: "Straße & Hausnummer", name: "strasse", widget: "string" }
+              - { label: "PLZ & Ort", name: "ort", widget: "string" }
+
+          - label: "Preise Uelzen"
+            name: "preise"
+            widget: "object"
+            hint: "Eigene Preisliste für den Standort Uelzen."
+            fields:
+              - label: "Tarife"
+                name: "tarife"
+                widget: "list"
+                label_singular: "Tarif"
+                required: false
+                summary: "{{name}} ({{altersgruppe}}) – {{laufzeit}} – {{preis}},{{cent}} €"
+                hint: "Jeder Tarif hat einen eigenen Namen, eine Laufzeit, einen Preis und eine Altersgruppe. Reihenfolge per Drag&Drop änderbar."
+                fields:
+                  - { label: "Name", name: "name", widget: "string", hint: "z.B. Panthers, BJJ, Mini Panthers" }
+                  - { label: "Laufzeit", name: "laufzeit", widget: "string", hint: "z.B. 12 Monate oder Flex · monatlich" }
+                  - label: "Altersgruppe"
+                    name: "altersgruppe"
+                    widget: "select"
+                    options: ["Erwachsene", "Kinder"]
+                    default: "Erwachsene"
+                  - { label: "Preis (Euro, ganze Zahl)", name: "preis", widget: "string", hint: "z.B. 54" }
+                  - { label: "Preis (Cent, zweistellig)", name: "cent", widget: "string", hint: "z.B. 90" }
+                  - label: "Preiseinheit"
+                    name: "einheit"
+                    widget: "select"
+                    options: ["Monat", "Stunde", "Einheit", "Termin", "Session"]
+                    default: "Monat"
+                    required: false
+                    hint: "Wird hinter dem Preis angezeigt, z.B. '54,90 / Stunde'"
+                  - { label: "Beschreibungstext", name: "hinweis", widget: "text" }
+                  - { label: "Sparhinweis (optional)", name: "sparhinweis", widget: "string", required: false, hint: "z.B. ↓ Günstigster Tarif – leer lassen wenn keiner" }
+                  - { label: "Als 'Beliebt' markieren", name: "beliebt", widget: "boolean", default: false }
+
+              - label: "Anmeldegebühr"
+                name: "anmeldegebuehr"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Betrag (für Überschrift)", name: "betrag", widget: "string", hint: "z.B. 49,90 €", required: false }
+                  - { label: "Überschrift", name: "titel", widget: "string", required: false }
+                  - { label: "Text", name: "text", widget: "text", required: false }
+
           - label: "Anfrageformular (MATOOL)"
             name: "formular"
             widget: "object"
