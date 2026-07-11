@@ -84,6 +84,7 @@ collections:
         label: "Seminartermine"
         name: "seminare"
         fields:
+          - { label: "Einleitungstext (über der Seminarliste)", name: "einleitungstext", widget: "text", required: false, hint: "Allgemeiner Text, der oberhalb der Seminartermine angezeigt wird. Leer lassen, wenn nicht benötigt." }
           - label: "Seminare"
             name: "seminare"
             widget: "list"
@@ -104,6 +105,30 @@ collections:
       - file: "_data/stundenplan.json"
         label: "Trainingszeiten"
         name: "stundenplan"
+        fields:
+          - label: "Wochentage"
+            name: "tage"
+            widget: "list"
+            label_singular: "Tag"
+            summary: "{{tag}}"
+            fields:
+              - { label: "Wochentag", name: "tag", widget: "string" }
+              - label: "Kurse"
+                name: "kurse"
+                widget: "list"
+                label_singular: "Kurs"
+                summary: "{{zeit}} – {{name}}"
+                fields:
+                  - { label: "Uhrzeit", name: "zeit", widget: "string", hint: "z.B. 18:00 – 19:15" }
+                  - { label: "Kursname", name: "name", widget: "string" }
+
+  # ============ STUNDENPLAN UELZEN ============
+  - name: "stundenplan_uelzen"
+    label: "Stundenplan Uelzen"
+    files:
+      - file: "_data/stundenplan_uelzen.json"
+        label: "Trainingszeiten Uelzen"
+        name: "stundenplan_uelzen"
         fields:
           - label: "Wochentage"
             name: "tage"
@@ -194,6 +219,24 @@ collections:
             name: "probetraining_formular"
             widget: "object"
             hint: "Hier kannst du das interne Anfrageformular durch ein externes MATOOL-Formular ersetzen."
+            fields:
+              - { label: "iframe-Einbettungscode von MATOOL", name: "iframe_code", widget: "text", required: false, hint: "Den kompletten <iframe ...>...</iframe>-Code aus MATOOL hier einfügen. Leer lassen, um das bisherige interne Formular weiter zu verwenden." }
+              - { label: "Höhe des Formulars (in Pixel)", name: "hoehe", widget: "number", default: 600, hint: "Falls das Formular abgeschnitten wirkt oder zu viel Leerraum lässt, hier die Höhe anpassen, z.B. 600, 750, 900." }
+
+          - label: "Training in Uelzen – Texte & Bilder"
+            name: "training_uelzen"
+            widget: "object"
+            hint: "Inhalte für die neue Seite 'Training in Uelzen'."
+            fields:
+              - { label: "Beschreibungstext 1", name: "text1", widget: "text" }
+              - { label: "Beschreibungstext 2", name: "text2", widget: "text", required: false }
+              - { label: "Bilderserie (optional)", name: "galerie", widget: "list", required: false, field: { label: "Bild", name: "bild", widget: "image" }, hint: "Fotos vom Training in Uelzen, werden als Galerie angezeigt" }
+              - { label: "Mitgliedsantrag Uelzen (PDF)", name: "mitgliedsantrag_pdf", widget: "file", required: false, hint: "Eigenes PDF für den Standort Uelzen hochladen. Leer lassen, um den Download-Button auf der Seite auszublenden." }
+
+          - label: "Training in Uelzen-Formular (MATOOL)"
+            name: "uelzen_formular"
+            widget: "object"
+            hint: "Hier kannst du das interne Anfrageformular auf der Uelzen-Seite durch ein externes MATOOL-Formular ersetzen (eigener Standort, eigener Code)."
             fields:
               - { label: "iframe-Einbettungscode von MATOOL", name: "iframe_code", widget: "text", required: false, hint: "Den kompletten <iframe ...>...</iframe>-Code aus MATOOL hier einfügen. Leer lassen, um das bisherige interne Formular weiter zu verwenden." }
               - { label: "Höhe des Formulars (in Pixel)", name: "hoehe", widget: "number", default: 600, hint: "Falls das Formular abgeschnitten wirkt oder zu viel Leerraum lässt, hier die Höhe anpassen, z.B. 600, 750, 900." }
