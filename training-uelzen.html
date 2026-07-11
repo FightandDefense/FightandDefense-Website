@@ -825,6 +825,117 @@
     .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff !important; }
     .btn-facebook { background: #1877f2; color: #fff !important; }
 
+    /* ─── PRICE TABLES (Uelzen) ─── */
+    .price-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .price-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 900px) { .price-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .price-grid { grid-template-columns: 1fr; } }
+    .price-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2rem 1.5rem 1.8rem;
+      position: relative;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .price-card:hover {
+      border-color: var(--blue2);
+      box-shadow: 0 0 28px rgba(26,184,232,0.12);
+      transform: translateY(-3px);
+    }
+    .price-card.popular {
+      border-color: var(--blue);
+      box-shadow: 0 0 30px rgba(26,184,232,0.18);
+    }
+    .popular-badge {
+      position: absolute;
+      top: -1px; right: 1.2rem;
+      background: var(--blue);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+    }
+    .price-duration {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.6rem;
+    }
+    .price-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .price-amount sup { font-size: 1.2rem; vertical-align: top; margin-top: 0.4rem; display: inline-block; }
+    .price-amount sub { font-size: 0.8rem; color: var(--muted); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.05em; }
+    .price-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .price-saving {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-top: 0.6rem;
+    }
+    .anmelde-box {
+      background: linear-gradient(135deg, #0a1520, #0e1a24);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      padding: 2rem 2rem;
+      margin-top: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
+    }
+    .anmelde-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+    .anmelde-text h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .anmelde-text p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+    .anmelde-text strong { color: var(--blue); }
+
     </style>
 </head>
 <body>
@@ -926,6 +1037,36 @@
   </div>
 </section>
 
+<!-- PREISE UELZEN -->
+<section style="background:var(--dark); padding:2rem 2rem 5rem; border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <p class="section-label fade-in">Transparent &amp; Fair</p>
+    <h2 class="section-title fade-in">Preise <span>Uelzen</span></h2>
+    <div class="divider fade-in"></div>
+
+    <!-- DOWNLOAD BUTTON MITGLIEDSANTRAG UELZEN -->
+    <div style="margin: 2.5rem auto; text-align: center; max-width: 1100px;">
+      <a href="#" download data-cms="uelzen-mitgliedsantrag" class="btn btn-primary" style="display:none; align-items:center; gap:0.6rem;">
+        Mitgliedsantrag Uelzen herunterladen
+      </a>
+    </div>
+
+    <!-- TARIF-GRUPPEN UELZEN -->
+    <div data-cms="uelzen-preise-gruppen" style="margin-top: 2.5rem;">
+      <!-- Wird automatisch aus /_data/training_uelzen.json (preise) befüllt -->
+    </div>
+
+    <!-- ANMELDEGEBÜHR UELZEN -->
+    <div class="anmelde-box fade-in">
+      <div class="anmelde-icon">👕</div>
+      <div class="anmelde-text">
+        <h4 data-cms="uelzen-anmelde-titel"></h4>
+        <p data-cms="uelzen-anmelde-text"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STUNDENPLAN UELZEN -->
 <section style="background:var(--dark); padding:2rem 2rem 5rem; border-top: 1px solid var(--border);">
   <div class="section-inner">
@@ -935,15 +1076,6 @@
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;" data-cms="stundenplan-uelzen-kacheln">
       <!-- Wird automatisch aus /_data/stundenplan_uelzen.json befüllt -->
     </div>
-  </div>
-</section>
-
-<!-- MITGLIEDSANTRAG DOWNLOAD UELZEN -->
-<section style="background:var(--dark); padding:0 2rem 5rem; border-top: 1px solid var(--border);">
-  <div class="section-inner" style="text-align:center;">
-    <a href="#" download data-cms="uelzen-mitgliedsantrag" class="btn btn-primary" style="display:none; align-items:center; gap:0.6rem;">
-      Mitgliedsantrag Uelzen herunterladen
-    </a>
   </div>
 </section>
 
@@ -960,7 +1092,8 @@
       <div style="display: grid; gap: 20px;">
         <div style="background: var(--card); padding: 20px; border: 1px solid var(--border); border-radius: 4px;">
           <strong style="color: var(--blue); display: block; margin-bottom: 5px; font-family: 'Barlow Condensed'; text-transform: uppercase;">Adresse</strong>
-          <p style="color: var(--white); font-size: 1.1rem; margin: 0;" data-cms="kontakt-adresse">Auf dem Schmaarkamp 1b<br>21339 Lüneburg</p>
+          <p style="color: var(--white); font-size: 1.1rem; margin: 0 0 4px;" data-cms="uelzen-adresse-name"></p>
+          <p style="color: var(--white); font-size: 1.1rem; margin: 0;" data-cms="uelzen-adresse">Bahnhofstr. 2b<br>29525 Uelzen</p>
         </div>
         <div style="background: var(--card); padding: 20px; border: 1px solid var(--border); border-radius: 4px;">
           <strong style="color: var(--blue); display: block; margin-bottom: 5px; font-family: 'Barlow Condensed'; text-transform: uppercase;">Telefon & WhatsApp</strong>
@@ -973,7 +1106,7 @@
       </div>
     </div>
     <div style="height: 450px; border: 1px solid var(--border); overflow: hidden; border-radius: 4px; box-shadow: 0 0 30px var(--glow);">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2386.648474685054!2d10.406963226874327!3d53.25999973118042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1dd107dc9a957%3A0xa54308a0daca1504!2sFight%20%26%20Defense!5e0!3m2!1sde!2sde!4v1781637971602!5m2!1sde!2sde" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps?q=Easyfitness+Uelzen+Bahnhofstr.+2b+29525+Uelzen&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>

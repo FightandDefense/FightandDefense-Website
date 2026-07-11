@@ -223,7 +223,55 @@
       }
     }
 
+    if (data.adresse) {
+      setText('[data-cms="uelzen-adresse-name"]', data.adresse.name);
+      setHTML('[data-cms="uelzen-adresse"]',
+        (data.adresse.strasse || '') + '<br>' + (data.adresse.ort || ''));
+    }
+
+    applyUelzenPreise(data.preise);
     applyUelzenFormular(data.formular);
+  }
+
+  // ---------- TRAINING IN UELZEN: PREISE (eigener Standort) ----------
+  function applyUelzenPreise(data) {
+    if (!data) return;
+    var container = document.querySelector('[data-cms="uelzen-preise-gruppen"]');
+    if (container && data.tarife) {
+      container.innerHTML = "";
+      if (!data.tarife.length) {
+        container.innerHTML = '<p style="color: var(--muted); font-size: 0.9rem; text-align:center;">Die Preise für Uelzen werden in Kürze ergänzt.</p>';
+      } else {
+        var reihenfolge = ["Erwachsene", "Kinder"];
+        var gruppen = {};
+        data.tarife.forEach(function (item) {
+          var key = item.altersgruppe || "Weitere";
+          if (!gruppen[key]) gruppen[key] = [];
+          gruppen[key].push(item);
+        });
+        var alleGruppen = reihenfolge.filter(function (g) { return gruppen[g]; });
+        Object.keys(gruppen).forEach(function (g) {
+          if (alleGruppen.indexOf(g) === -1) alleGruppen.push(g);
+        });
+        alleGruppen.forEach(function (gruppenName) {
+          var wrapper = document.createElement("div");
+          wrapper.className = "fade-in visible";
+          var title = document.createElement("p");
+          title.className = "price-section-title";
+          title.textContent = gruppenName;
+          var grid = document.createElement("div");
+          grid.className = "price-grid";
+          renderPriceCards(grid, gruppen[gruppenName]);
+          wrapper.appendChild(title);
+          wrapper.appendChild(grid);
+          container.appendChild(wrapper);
+        });
+      }
+    }
+    if (data.anmeldegebuehr) {
+      setText('[data-cms="uelzen-anmelde-titel"]', data.anmeldegebuehr.titel);
+      setText('[data-cms="uelzen-anmelde-text"]', data.anmeldegebuehr.text);
+    }
   }
 
   // ---------- TRAINING IN UELZEN-FORMULAR (MATOOL oder intern) ----------
