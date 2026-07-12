@@ -3,16 +3,34 @@
     {
       "kuerzel": "S",
       "name": "Steffan",
-      "rolle": "Gründer & Head Trainer",
-      "bio": "Steffan ist der Kopf hinter Fight&Defense — Trainer, Gründer und treibende Kraft des Projekts. Im Laufe der Jahre hat er sich mehrere hochkarätige Qualifikationen erarbeitet, darunter Schwarze Gürtel im Ju-Jutsu und Krav Maga. Dieses fundierte Fundament bildet die Basis für ein Trainingskonzept, das Effektivität und Individualität konsequent verbindet. Für Steffan ist Training mehr als Technik: Es geht darum, Menschen in schwierigen Situationen handlungsfähig zu machen — körperlich wie mental. Sein Unterrichtsstil ist direkt, ehrlich und immer auf den Menschen ausgerichtet, der vor ihm steht.",
+      "rolle": "Gründer & Headinstructor",
+      "bio": "Steffan ist der Kopf hinter Fight&Defense — Trainer, Gründer und treibende Kraft des Projekts. Im Laufe der Jahre hat er sich mehrere hochkarätige Qualifikationen erarbeitet, darunter Schwarze Gürtel im Ju-Jutsu und Krav Maga. Dieses fundierte Fundament bildet die Basis für ein Trainingskonzept, das Effektivität und Individualität konsequent verbindet. Für Steffan ist Training mehr als Technik: Es geht darum, Menschen in schwierigen Situationen handlungsfähig zu machen — körperlich wie mental. Sein Unterrichtsstil ist direkt, ehrlich und immer auf den Menschen ausgerichtet, der vor ihm steht. Sein Wissen und Intentionen fließen in das System A.C.T.S. ein. ",
       "foto": ""
     },
     {
       "kuerzel": "K",
       "name": "Kathi",
       "rolle": "Trainerin & Co-Gründerin",
-      "bio": "Kathi bringt eine besondere Perspektive ins Team: Sie weiß, wie es sich anfühlt, als Frau in einer Welt zu trainieren, die lange von Männern dominiert wurde — und genau das macht sie zu einer außergewöhnlichen Trainerin. Besonders hervorzuheben ist ihre Stärke in der Arbeit mit Kindern und Jugendlichen: Mit Einfühlungsvermögen, Geduld und einem feinen Gespür für die Bedürfnisse junger Menschen schafft sie eine Trainingsatmosphäre, in der Vertrauen und Entwicklung Hand in Hand gehen. Bei Kathi steht immer der Mensch im Mittelpunkt — nicht die Perfektion der Bewegung, sondern der Fortschritt dahinter.",
+      "bio": "Kathi bringt eine besondere Perspektive ins Team: Sie weiß, wie es sich anfühlt, als Frau in einer Welt zu trainieren, die lange von Männern dominiert wurde — und genau das macht sie zu einer außergewöhnlichen Trainerin. Als Krav Maga Full Instructorin und Trägerin des Bluebelt, gibt sie ihr Wissen und ihre Erfahrung weiter. Besonders hervorzuheben ist ihre Stärke in der Arbeit mit Kindern und Jugendlichen: Mit Einfühlungsvermögen, Geduld und einem feinen Gespür für die Bedürfnisse junger Menschen schafft sie eine Trainingsatmosphäre, in der Vertrauen und Entwicklung Hand in Hand gehen. Bei Kathi steht immer der Mensch im Mittelpunkt — nicht die Perfektion der Bewegung, sondern der Fortschritt dahinter. ",
       "foto": ""
+    },
+    {
+      "kuerzel": "KY",
+      "name": "Kaddy",
+      "rolle": "Trainerin",
+      "bio": "Kaddy trainiert seit 10 Jahren Krav Maga und Self-Defense und ist Trägerin des Braunen Gürtels — seit 8 Jahren gibt sie dieses Wissen als Trainerin weiter. Als Fullinstructorin im Krav Maga und mit Erfahrungen im Bereich traumasensibles Training, hat sie sich eine breite Erfahrung erarbeitet: von Kita- und Schulseminaren über Firmentrainings bis hin zu Angeboten für Menschen mit Handycaps. Trainerin mit Herz — ob bei den Kleinsten oder den Großen, sie bringt Leidenschaft, Humor und Erfahrung mit und holt jeden Schüler dort ab, wo er oder sie steht. Für Kaddy zählt nicht die perfekte Technik, sondern wie mit jedem Training der Rahmen des Möglichen ein Stück weiter wird."
+    },
+    {
+      "kuerzel": "A",
+      "name": "Andreas",
+      "rolle": "Trainer",
+      "bio": "Seit seiner Jugend begeistert ihn die Welt der Kampfkünste und Kampfsportarten. U.a. über Karate und Taekwon-Do – das er leistungsorientiert im Vollkontakt ausübte – führte ihn sein Weg zur praxis- und realitätsbezogenen Selbstverteidigung. Als Trainer im Bereich Selfdefense gibt er seit 2018 sein Wissen mit Leidenschaft weiter. Menschen in ihrer Entwicklung zu begleiten, ihr Selbstvertrauen zu stärken und ihre Fähigkeiten auszubauen, ist für ihn Beruf und Berufung. Dabei entwickelt er sich selbst kontinuierlich weiter und blickt stets über den Tellerrand hinaus und entwickelt dabei sowohl seine Trainerkompetenz als auch eigenen kämpferischen Fähigkeiten weiter."
+    },
+    {
+      "kuerzel": "D",
+      "name": "Dennis",
+      "rolle": "Trainer",
+      "bio": "Für Dennis muss Selbstverteidigung vor allem eines: auch unter Stress funktionieren — deshalb setzt er auf einfache, stabile Grundprinzipien statt auf möglichst viele Techniken oder Perfektion. Im Training zählt, unter Druck handlungsfähig zu bleiben und sinnvolle Reaktionsmuster sicher abrufen zu können. Besonders wichtig ist ihm, dass die Inhalte zum jeweiligen Menschen passen, denn nur wer sich mit einer Lösung wohlfühlt und ihr vertraut, wird sie im Ernstfall auch wirklich anwenden. Sein Ziel: Sicherheit nicht durch Perfektion, sondern durch ein stabiles Fundament, auf das man sich verlassen kann."
     }
   ]
 }
