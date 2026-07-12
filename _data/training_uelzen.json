@@ -15,10 +15,61 @@
     "ort": "29525 Uelzen"
   },
   "preise": {
-    "tarife": [],
+    "tarife": [
+      {
+        "altersgruppe": "Kinder",
+        "einheit": "Monat",
+        "beliebt": false,
+        "name": "Little Panthers",
+        "laufzeit": "1 Monat",
+        "preis": "39",
+        "cent": "00",
+        "hinweis": "Für Kinder im Alter von 6-10 Jahren."
+      },
+      {
+        "altersgruppe": "Kinder",
+        "einheit": "Monat",
+        "beliebt": false,
+        "name": "Kid Panthers",
+        "laufzeit": "1 Monat",
+        "preis": "39",
+        "cent": "00",
+        "hinweis": "Für Kinder im Alter von 10-13 Jahre."
+      },
+      {
+        "altersgruppe": "Erwachsene",
+        "einheit": "Monat",
+        "beliebt": false,
+        "name": "Panthers 12",
+        "laufzeit": "12 Monate",
+        "preis": "33",
+        "cent": "00",
+        "hinweis": "Der Klassiker — ein Jahr voll dabei, solides Fundament aufbauen."
+      },
+      {
+        "altersgruppe": "Erwachsene",
+        "einheit": "Monat",
+        "beliebt": false,
+        "name": "Panthers 6",
+        "laufzeit": "6 Monate",
+        "cent": "00",
+        "hinweis": "Halbjahres-Einstieg — ideal zum Reinschnuppern mit etwas mehr Verbindlichkeit.",
+        "preis": "44"
+      },
+      {
+        "altersgruppe": "Erwachsene",
+        "einheit": "Monat",
+        "beliebt": false,
+        "name": "Panthers Flex",
+        "laufzeit": "1 Monat",
+        "preis": "55",
+        "cent": "00",
+        "hinweis": "Maximale Flexibilität — monatlich kündbar, keine Mindestlaufzeit."
+      }
+    ],
     "anmeldegebuehr": {
       "betrag": "49,90 €",
-      "titel": "Einmalige Anmeldegebühr:",
+      "titel": "Einmalige Anmeldegebühr: 49,90 €",
       "text": "Bei Abschluss einer Mitgliedschaft fällt einmalig eine Anmeldegebühr von 49,90 € an — inklusive einem exklusiven Fight&Defense T-Shirt. Alle Preise verstehen sich pro Monat. Das Probetraining ist kostenlos und verpflichtet zu nichts."
     }
   }
