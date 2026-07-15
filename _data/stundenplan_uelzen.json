@@ -1,3 +1,17 @@
 {
-  "tage": []
+  "tage": [
+    {
+      "tag": "Mittwoch",
+      "kurse": [
+        {
+          "zeit": "16.30 - 17.30 ",
+          "name": "Little Panthers / Kid Panthers"
+        },
+        {
+          "zeit": "18.00 - 19.00 ",
+          "name": "Selfdefense Class (ab 16 Jahre) "
+        }
+      ]
+    }
+  ]
 }
