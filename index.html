@@ -831,6 +831,166 @@
 </head>
 <body>
 
+<!-- ============================================================
+     Aktions-Banner "Keine Anmeldegebühr" – gültig bis 29.08.2026.
+     Blendet sich danach automatisch aus.
+     ============================================================ -->
+<div id="fd-promo-banner" class="fd-banner" role="region" aria-label="Aktuelle Aktion">
+  <div class="fd-banner__inner">
+    <span class="fd-banner__badge">Aktion</span>
+    <p class="fd-banner__text">
+      Keine Anmeldegebühr – nur noch bis <strong>29.08.2026</strong> sicherst du dir dein Training ohne Startkosten.
+    </p>
+    <a href="#anmeldung" class="fd-banner__cta">Jetzt anmelden</a>
+    <button class="fd-banner__close" aria-label="Banner schließen" onclick="fdCloseBanner()">&times;</button>
+  </div>
+</div>
+
+<style>
+  .fd-banner {
+    --fd-black: #0a0a0a;
+    --fd-steel: #3a4a5a;
+    --fd-cyan: #5BC8E8;
+    --fd-blue: #2A6FA8;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--fd-black) 0%, var(--fd-steel) 100%);
+    color: #fff;
+    z-index: 1100;
+    border-bottom: 2px solid var(--fd-cyan);
+  }
+
+  .fd-banner__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 44px 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .fd-banner__badge {
+    background: var(--fd-cyan);
+    color: var(--fd-black);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+
+  .fd-banner__text {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    flex: 1 1 260px;
+  }
+
+  .fd-banner__text strong {
+    color: var(--fd-cyan);
+  }
+
+  .fd-banner__cta {
+    background: var(--fd-blue);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .fd-banner__cta:hover {
+    background: var(--fd-cyan);
+    color: var(--fd-black);
+  }
+
+  .fd-banner__close {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    opacity: 0.7;
+  }
+
+  .fd-banner__close:hover { opacity: 1; }
+
+  @media (max-width: 560px) {
+    .fd-banner__inner { padding-right: 40px; }
+    .fd-banner__cta { width: 100%; text-align: center; }
+  }
+</style>
+
+<script>
+  (function () {
+    var FD_END_DATE = new Date('2026-08-29T23:59:59+02:00');
+    var FD_STORAGE_KEY = 'fd_promo_banner_closed';
+
+    function fdAdjustLayout() {
+      var banner = document.getElementById('fd-promo-banner');
+      var nav = document.querySelector('nav');
+      var navLinks = document.getElementById('navLinks');
+      var bannerVisible = banner && banner.style.display !== 'none';
+      var bannerHeight = bannerVisible ? banner.offsetHeight : 0;
+      var navHeight = nav ? nav.offsetHeight : 70;
+      if (nav) nav.style.top = bannerHeight + 'px';
+      if (navLinks && navLinks.classList.contains('mobile-dropdown')) {
+        navLinks.style.top = (bannerHeight + navHeight) + 'px';
+      }
+      document.body.style.paddingTop = bannerHeight + 'px';
+    }
+
+    function fdCloseBannerInternal() {
+      var banner = document.getElementById('fd-promo-banner');
+      if (banner) banner.style.display = 'none';
+      fdAdjustLayout();
+    }
+
+    window.fdCloseBanner = function () {
+      fdCloseBannerInternal();
+      try { localStorage.setItem(FD_STORAGE_KEY, Date.now().toString()); } catch (e) {}
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var banner = document.getElementById('fd-promo-banner');
+      if (!banner) return;
+
+      if (new Date() > FD_END_DATE) {
+        fdCloseBannerInternal();
+        return;
+      }
+
+      var closedAt = null;
+      try { closedAt = localStorage.getItem(FD_STORAGE_KEY); } catch (e) {}
+      if (closedAt && (Date.now() - parseInt(closedAt, 10)) < 24 * 60 * 60 * 1000) {
+        fdCloseBannerInternal();
+        return;
+      }
+
+      fdAdjustLayout();
+      window.addEventListener('resize', fdAdjustLayout);
+    });
+  })();
+</script>
+
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">
