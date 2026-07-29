@@ -1,0 +1,113 @@
+/* Fight & Defense – Cookie Consent Banner Styles */
+
+#fud-cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  font-family: inherit;
+}
+
+.fud-cookie-box {
+  width: 100%;
+  max-width: 720px;
+  background: #0a0a0a;
+  color: #f2f2f2;
+  border: 1px solid #3a4a5a;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.fud-cookie-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  color: #d8d8d8;
+}
+
+.fud-cookie-link {
+  color: #5BC8E8;
+  text-decoration: underline;
+}
+
+.fud-cookie-heading {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #f2f2f2;
+}
+
+.fud-cookie-category {
+  border-top: 1px solid #3a4a5a;
+  padding: 12px 0;
+}
+
+.fud-cookie-category-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.fud-cookie-desc {
+  font-size: 13px;
+  color: #a9b4bd;
+  margin: 6px 0 0 0;
+}
+
+.fud-cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.fud-btn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.fud-btn:hover {
+  opacity: 0.9;
+}
+
+.fud-btn:active {
+  transform: scale(0.98);
+}
+
+.fud-btn-primary {
+  background: #2A6FA8;
+  color: #ffffff;
+}
+
+.fud-btn-outline {
+  background: transparent;
+  color: #f2f2f2;
+  border-color: #3a4a5a;
+}
+
+.fud-btn-ghost {
+  background: transparent;
+  color: #5BC8E8;
+  border-color: transparent;
+}
+
+@media (max-width: 480px) {
+  .fud-cookie-actions {
+    justify-content: stretch;
+  }
+  .fud-btn {
+    flex: 1;
+  }
+}
