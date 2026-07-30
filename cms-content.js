@@ -110,6 +110,16 @@
       setText('[data-cms="highlight-titel"]', h.titel);
       setText('[data-cms="highlight-datum"]', h.datum);
       setText('[data-cms="highlight-text"]', h.text);
+      var bildEl = document.querySelector('[data-cms="highlight-bild"]');
+      if (bildEl) {
+        if (h.bild) {
+          bildEl.src = h.bild;
+          bildEl.alt = h.titel || "";
+          bildEl.style.display = "block";
+        } else {
+          bildEl.style.display = "none";
+        }
+      }
     });
   }
 
@@ -431,11 +441,10 @@
 
   function applySeminare(data) {
     if (!data) return;
-    setText('[data-cms="seminare-einleitung"]', data.einleitungstext);
-    var einleitungBox = document.querySelector('[data-cms="seminare-einleitung"]');
-    if (einleitungBox) {
-      einleitungBox.style.display = data.einleitungstext ? "" : "none";
+    if (data.einleitungstext) {
+      setText('[data-cms="seminare-einleitung"]', data.einleitungstext);
     }
+    // Kein CMS-Text gepflegt -> die im HTML hinterlegte Standardbeschreibung bleibt sichtbar
     var container = document.querySelector('[data-cms="seminare-liste"]');
     var placeholder = document.querySelector('[data-cms="seminare-platzhalter"]');
     if (!container) return;
