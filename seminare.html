@@ -816,23 +816,21 @@
     /* ─── SEMINAR-KARTEN (gruppiert, mehrere Termine) ─── */
     .seminar-card {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      flex-direction: column;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 1.5rem;
+      overflow: hidden;
+      padding: 0;
       margin-bottom: 1.5rem;
       text-align: left;
     }
     .seminar-img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
+      width: 100%;
+      height: auto;
+      display: block;
     }
-    .seminar-body { flex: 1; min-width: 220px; }
+    .seminar-body { padding: 1.5rem; }
     .seminar-kategorie {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.8rem;
