@@ -813,6 +813,75 @@
     .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff !important; }
     .btn-facebook { background: #1877f2; color: #fff !important; }
 
+    /* ─── SEMINAR-KARTEN (gruppiert, mehrere Termine) ─── */
+    .seminar-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .seminar-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .seminar-body { flex: 1; min-width: 220px; }
+    .seminar-kategorie {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.4rem;
+    }
+    .seminar-titel {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+    .seminar-text {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .seminar-termine-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .seminar-termine {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .termin-chip {
+      background: rgba(26,184,232,0.1);
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .termin-chip:hover {
+      background: var(--blue);
+      color: var(--black);
+    }
     </style>
 <link rel="stylesheet" href="/cookie-consent.css">
 <script>
