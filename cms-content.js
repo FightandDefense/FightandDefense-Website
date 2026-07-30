@@ -401,6 +401,34 @@
   }
 
   // ---------- SEMINARE ----------
+  // Fasst Einträge mit identischem Titel+Text zu einem Kurs mit mehreren
+  // Terminen zusammen (z.B. "Basic-Kurs Selbstverteidigung" an 4 Terminen).
+  // Neue Termine desselben Kurses einfach mit gleichem titel/text als
+  // weiterer Eintrag in seminare.json ergänzen (eigenes datum + link).
+  function gruppiereSeminare(seminare) {
+    var gruppen = [];
+    var index = {};
+    seminare.forEach(function (s) {
+      var key = (s.titel || "") + "|" + (s.text || "");
+      if (index[key] === undefined) {
+        index[key] = gruppen.length;
+        gruppen.push({
+          titel: s.titel,
+          kategorie: s.kategorie,
+          text: s.text,
+          bild: s.bild,
+          galerie: s.galerie,
+          termine: []
+        });
+      }
+      gruppen[index[key]].termine.push({
+        datum: (s.datum || "").trim(),
+        link: s.link
+      });
+    });
+    return gruppen;
+  }
+
   function applySeminare(data) {
     if (!data) return;
     setText('[data-cms="seminare-einleitung"]', data.einleitungstext);
@@ -419,20 +447,30 @@
     if (placeholder) placeholder.style.display = "none";
     container.style.display = "";
     container.innerHTML = "";
-    data.seminare.forEach(function (s) {
+
+    var kurse = gruppiereSeminare(data.seminare);
+
+    kurse.forEach(function (kurs) {
+      var mehrereTermine = kurs.termine.length > 1;
       var div = document.createElement("div");
-      div.className = "fade-in visible";
-      div.setAttribute("style",
-        "background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;");
+      div.className = "seminar-card fade-in visible";
+
+      var termineHtml = kurs.termine.map(function (t) {
+        return '<a class="termin-chip" href="' + (t.link || "#") + '" target="_blank" rel="noopener">' +
+          (t.datum || "") + '</a>';
+      }).join("");
+
       var html =
-        (s.bild ? '<img src="' + s.bild + '" alt="' + (s.titel || "") + '" style="width:100%; max-height:320px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">' : '') +
-        '<span style="color: var(--blue); font-weight: 600; font-size: 0.9rem;">' + (s.datum || "") + '</span>' +
-        '<h3 style="font-family: \'Bebas Neue\'; font-size: 2rem; margin: 10px 0;">' + (s.titel || "") + '</h3>' +
-        '<p style="color: var(--muted); line-height: 1.6;">' + (s.text || "") + '</p>' +
-        renderGallery(s.galerie);
-      if (s.link) {
-        html += '<a href="' + s.link + '" class="btn btn-secondary" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.6rem; background: transparent; border: 1px solid var(--blue); color: var(--blue); text-decoration: none; font-family: \'Barlow Condensed\', sans-serif; font-weight: 700; text-transform: uppercase;">Mehr erfahren</a>';
-      }
+        (kurs.bild ? '<img class="seminar-img" src="' + kurs.bild + '" alt="' + (kurs.titel || "") + '" loading="lazy">' : '') +
+        '<div class="seminar-body">' +
+        (kurs.kategorie ? '<p class="seminar-kategorie">' + kurs.kategorie + '</p>' : '') +
+        '<h3 class="seminar-titel">' + (kurs.titel || "") + '</h3>' +
+        '<p class="seminar-text">' + (kurs.text || "").replace(/\n/g, "<br>") + '</p>' +
+        renderGallery(kurs.galerie) +
+        '<div class="seminar-termine-label">' + (mehrereTermine ? "Nächste Termine:" : "Termin:") + '</div>' +
+        '<div class="seminar-termine">' + termineHtml + '</div>' +
+        '</div>';
+
       div.innerHTML = html;
       container.appendChild(div);
     });
