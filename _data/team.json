@@ -10,27 +10,37 @@
     {
       "kuerzel": "K",
       "name": "Kathi",
-      "rolle": "Trainerin & Co-Gründerin",
+      "rolle": "Head Instructor & Co-Gründerin",
       "bio": "Kathi bringt eine besondere Perspektive ins Team: Sie weiß, wie es sich anfühlt, als Frau in einer Welt zu trainieren, die lange von Männern dominiert wurde — und genau das macht sie zu einer außergewöhnlichen Trainerin. Als Krav Maga Full Instructorin und Trägerin des Bluebelt, gibt sie ihr Wissen und ihre Erfahrung weiter. Besonders hervorzuheben ist ihre Stärke in der Arbeit mit Kindern und Jugendlichen: Mit Einfühlungsvermögen, Geduld und einem feinen Gespür für die Bedürfnisse junger Menschen schafft sie eine Trainingsatmosphäre, in der Vertrauen und Entwicklung Hand in Hand gehen. Bei Kathi steht immer der Mensch im Mittelpunkt — nicht die Perfektion der Bewegung, sondern der Fortschritt dahinter. ",
-      "foto": ""
+      "foto": "/images/uploads/img_0206.jpeg"
     },
     {
       "kuerzel": "KY",
       "name": "Kaddy",
       "rolle": "Trainerin",
-      "bio": "Kaddy trainiert seit 10 Jahren Krav Maga und Self-Defense und ist Trägerin des Brownbelt — seit 8 Jahren gibt sie dieses Wissen als Trainerin weiter. Als Fullinstructorin im Krav Maga und mit Erfahrungen im Bereich traumasensibles Training, hat sie sich eine breite Erfahrung erarbeitet: von Kita- und Schulseminaren über Firmentrainings bis hin zu Angeboten für Menschen mit Handycaps. Trainerin mit Herz — ob bei den Kleinsten oder den Großen, sie bringt Leidenschaft, Humor und Erfahrung mit und holt jeden Schüler dort ab, wo er oder sie steht. Für Kaddy zählt nicht die perfekte Technik, sondern wie mit jedem Training der Rahmen des Möglichen ein Stück weiter wird."
+      "bio": "Kaddy trainiert seit 10 Jahren Krav Maga und Self-Defense und ist Trägerin des Brownbelt — seit 8 Jahren gibt sie dieses Wissen als Trainerin weiter. Als Fullinstructorin im Krav Maga und mit Erfahrungen im Bereich traumasensibles Training, hat sie sich eine breite Erfahrung erarbeitet: von Kita- und Schulseminaren über Firmentrainings bis hin zu Angeboten für Menschen mit Handycaps. Trainerin mit Herz — ob bei den Kleinsten oder den Großen, sie bringt Leidenschaft, Humor und Erfahrung mit und holt jeden Schüler dort ab, wo er oder sie steht. Für Kaddy zählt nicht die perfekte Technik, sondern wie mit jedem Training der Rahmen des Möglichen ein Stück weiter wird.",
+      "foto": "/images/uploads/img_0202.jpeg"
     },
     {
       "kuerzel": "A",
       "name": "Andreas",
       "rolle": "Trainer",
-      "bio": "Seit seiner Jugend begeistert ihn die Welt der Kampfkünste und Kampfsportarten. U.a. über Karate und Taekwon-Do – das er leistungsorientiert im Vollkontakt ausübte – führte ihn sein Weg zur praxis- und realitätsbezogenen Selbstverteidigung. Als Trainer im Bereich Selfdefense gibt er seit 2018 sein Wissen mit Leidenschaft weiter. Menschen in ihrer Entwicklung zu begleiten, ihr Selbstvertrauen zu stärken und ihre Fähigkeiten auszubauen, ist für ihn Beruf und Berufung. Dabei entwickelt er sich selbst kontinuierlich weiter und blickt stets über den Tellerrand hinaus und entwickelt dabei sowohl seine Trainerkompetenz als auch eigenen kämpferischen Fähigkeiten weiter."
+      "bio": "Seit seiner Jugend begeistert ihn die Welt der Kampfkünste und Kampfsportarten. U.a. über Karate und Taekwon-Do – das er leistungsorientiert im Vollkontakt ausübte – führte ihn sein Weg zur praxis- und realitätsbezogenen Selbstverteidigung. Als Trainer im Bereich Selfdefense gibt er seit 2018 sein Wissen mit Leidenschaft weiter. Menschen in ihrer Entwicklung zu begleiten, ihr Selbstvertrauen zu stärken und ihre Fähigkeiten auszubauen, ist für ihn Beruf und Berufung. Dabei entwickelt er sich selbst kontinuierlich weiter und blickt stets über den Tellerrand hinaus und entwickelt dabei sowohl seine Trainerkompetenz als auch eigenen kämpferischen Fähigkeiten weiter.",
+      "foto": "/images/uploads/img_0197.jpeg"
     },
     {
       "kuerzel": "D",
       "name": "Dennis",
       "rolle": "Trainer",
-      "bio": "Für Dennis muss Selbstverteidigung vor allem eines: auch unter Stress funktionieren — deshalb setzt er auf einfache, stabile Grundprinzipien statt auf möglichst viele Techniken oder Perfektion. Im Training zählt, unter Druck handlungsfähig zu bleiben und sinnvolle Reaktionsmuster sicher abrufen zu können. Besonders wichtig ist ihm, dass die Inhalte zum jeweiligen Menschen passen, denn nur wer sich mit einer Lösung wohlfühlt und ihr vertraut, wird sie im Ernstfall auch wirklich anwenden. Sein Ziel: Sicherheit nicht durch Perfektion, sondern durch ein stabiles Fundament, auf das man sich verlassen kann."
+      "bio": "Für Dennis muss Selbstverteidigung vor allem eines: auch unter Stress funktionieren — deshalb setzt er auf einfache, stabile Grundprinzipien statt auf möglichst viele Techniken oder Perfektion. Im Training zählt, unter Druck handlungsfähig zu bleiben und sinnvolle Reaktionsmuster sicher abrufen zu können. Besonders wichtig ist ihm, dass die Inhalte zum jeweiligen Menschen passen, denn nur wer sich mit einer Lösung wohlfühlt und ihr vertraut, wird sie im Ernstfall auch wirklich anwenden. Sein Ziel: Sicherheit nicht durch Perfektion, sondern durch ein stabiles Fundament, auf das man sich verlassen kann.",
+      "foto": "/images/uploads/img_0204.jpeg"
+    },
+    {
+      "name": "Timo",
+      "rolle": "Trainer",
+      "bio": "Timo hat früh mit Ju-Jutsu begonnen und als Erwachsener das Feuer fürs Kämpfen neu entdeckt — heute trägt er den Blue Belt im Krav Maga und ist ausgebildeter Krav Maga Instructor. Durch seine Erfahrungen aus dem Dienst weiß er, wie reale Gewalt auf der Straße aussieht und worauf es bei der Selbstverteidigung wirklich ankommt. Als Trainer bringt er genau dieses Wissen ins Fight & Defense Team ein: nicht graue Theorie, sondern das, was auf der Straße tatsächlich zählt.",
+      "foto": "/images/uploads/img_0199.jpeg",
+      "kuerzel": "T"
     }
   ]
 }
