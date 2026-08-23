@@ -325,6 +325,69 @@ collections:
                   - { label: "Titel", name: "titel", widget: "string" }
                   - { label: "Text", name: "text", widget: "text" }
 
+  # ============ FIRMENSEMINARE ============
+  - name: "firmenseminare"
+    label: "Firmenseminare"
+    files:
+      - file: "_data/firmenseminare.json"
+        label: "Firmenseminare-Seite"
+        name: "firmenseminare"
+        fields:
+          - label: "Hero-Bereich (oben)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Label über der Überschrift", name: "label", widget: "string", hint: "z.B. Für Unternehmen" }
+              - { label: "Überschrift Teil 1 (normale Farbe)", name: "titel_teil1", widget: "string", hint: "z.B. Firmen" }
+              - { label: "Überschrift Teil 2 (hervorgehoben, blau)", name: "titel_teil2", widget: "string", hint: "z.B. seminare Selbstverteidigung in Lüneburg" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Warum Fight&Defense"
+            name: "warum"
+            widget: "object"
+            fields:
+              - { label: "Label über der Überschrift", name: "label", widget: "string" }
+              - { label: "Überschrift Teil 1 (normale Farbe)", name: "titel_teil1", widget: "string" }
+              - { label: "Überschrift Teil 2 (hervorgehoben, blau)", name: "titel_teil2", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Formate / Einsatzmöglichkeiten"
+            name: "formate"
+            widget: "object"
+            fields:
+              - { label: "Label über der Überschrift", name: "label", widget: "string" }
+              - { label: "Überschrift Teil 1 (normale Farbe)", name: "titel_teil1", widget: "string" }
+              - { label: "Überschrift Teil 2 (hervorgehoben, blau)", name: "titel_teil2", widget: "string" }
+              - label: "Kästchen"
+                name: "karten"
+                widget: "list"
+                label_singular: "Kästchen"
+                summary: "{{titel}}"
+                min: 1
+                fields:
+                  - { label: "Kategorie-Label (klein, über dem Titel)", name: "icon_label", widget: "string", hint: "z.B. Teamevent, Gesundheitstag, Inhouse-Workshop" }
+                  - { label: "Titel", name: "titel", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Ablauf"
+            name: "ablauf"
+            widget: "object"
+            fields:
+              - { label: "Label über der Überschrift", name: "label", widget: "string" }
+              - { label: "Überschrift Teil 1 (normale Farbe)", name: "titel_teil1", widget: "string" }
+              - { label: "Überschrift Teil 2 (hervorgehoben, blau)", name: "titel_teil2", widget: "string" }
+              - { label: "Textabschnitt 1", name: "text1", widget: "text" }
+              - { label: "Textabschnitt 2", name: "text2", widget: "text" }
+              - { label: "Textabschnitt 3", name: "text3", widget: "text" }
+
+          - label: "Kontakt-Hinweis (Kachel rechts)"
+            name: "kontakt_hinweis"
+            widget: "object"
+            hint: "E-Mail und Telefon/WhatsApp selbst kommen aus den allgemeinen Kontaktdaten (siehe 'Allgemeine Inhalte')."
+            fields:
+              - { label: "Überschrift", name: "titel", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
   # ============ IMPRESSUM ============
   - name: "impressum"
     label: "Impressum"
