@@ -529,6 +529,63 @@
     });
   }
 
+  // ---------- FIRMENSEMINARE ----------
+  function applyFirmenseminare(data) {
+    if (!data) return;
+
+    if (data.hero) {
+      var h = data.hero;
+      setText('[data-cms="firmenseminare-hero-label"]', h.label);
+      setText('[data-cms="firmenseminare-hero-titel1"]', h.titel_teil1);
+      setText('[data-cms="firmenseminare-hero-titel2"]', h.titel_teil2);
+      setText('[data-cms="firmenseminare-hero-text"]', h.text);
+    }
+
+    if (data.warum) {
+      var w = data.warum;
+      setText('[data-cms="firmenseminare-warum-label"]', w.label);
+      setText('[data-cms="firmenseminare-warum-titel1"]', w.titel_teil1);
+      setText('[data-cms="firmenseminare-warum-titel2"]', w.titel_teil2);
+      setText('[data-cms="firmenseminare-warum-text"]', w.text);
+    }
+
+    if (data.formate) {
+      var f = data.formate;
+      setText('[data-cms="firmenseminare-formate-label"]', f.label);
+      setText('[data-cms="firmenseminare-formate-titel1"]', f.titel_teil1);
+      setText('[data-cms="firmenseminare-formate-titel2"]', f.titel_teil2);
+      var container = document.querySelector('[data-cms="firmenseminare-formate-karten"]');
+      if (container && f.karten) {
+        container.innerHTML = "";
+        f.karten.forEach(function (karte) {
+          var div = document.createElement("div");
+          div.className = "training-card fade-in visible";
+          div.innerHTML =
+            '<span class="training-icon">' + (karte.icon_label || "") + '</span>' +
+            '<h3>' + (karte.titel || "") + '</h3>' +
+            '<p>' + (karte.text || "") + '</p>';
+          container.appendChild(div);
+        });
+      }
+    }
+
+    if (data.ablauf) {
+      var a = data.ablauf;
+      setText('[data-cms="firmenseminare-ablauf-label"]', a.label);
+      setText('[data-cms="firmenseminare-ablauf-titel1"]', a.titel_teil1);
+      setText('[data-cms="firmenseminare-ablauf-titel2"]', a.titel_teil2);
+      setText('[data-cms="firmenseminare-ablauf-text1"]', a.text1);
+      setText('[data-cms="firmenseminare-ablauf-text2"]', a.text2);
+      setText('[data-cms="firmenseminare-ablauf-text3"]', a.text3);
+    }
+
+    if (data.kontakt_hinweis) {
+      var kh = data.kontakt_hinweis;
+      setText('[data-cms="firmenseminare-kontakt-titel"]', kh.titel);
+      setText('[data-cms="firmenseminare-kontakt-text"]', kh.text);
+    }
+  }
+
   // ---------- TEAM ----------
   function applyTeam(data) {
     if (!data || !data.team) return;
@@ -591,6 +648,10 @@
 
     if (document.querySelector('[data-cms="uelzen-text1"]')) {
       fetchJSON(base + "training_uelzen.json").then(applyUelzen);
+    }
+
+    if (document.querySelector('[data-cms="firmenseminare-hero-titel1"]')) {
+      fetchJSON(base + "firmenseminare.json").then(applyFirmenseminare);
     }
 
     if (document.querySelector('[data-cms="team-liste"]')) {
