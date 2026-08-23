@@ -5,11 +5,11 @@
       "kurse": [
         {
           "zeit": "14:45 - 15:30",
-          "name": "Baby Panthers"
+          "name": "Baby Panthers (4-6 Jahre)"
         },
         {
           "zeit": "15:45 – 16:45",
-          "name": "Kid Panthers"
+          "name": "Kid Panthers (10-13 Jahre)"
         },
         {
           "zeit": "17:00 – 18:00",
@@ -29,11 +29,11 @@
       "tag": "Dienstag",
       "kurse": [
         {
-          "name": "Little Panthers",
+          "name": "Little Panthers (6-10 Jahre)",
           "zeit": "15:30 - 16:30"
         },
         {
-          "name": "Teen Panthers",
+          "name": "Teen Panthers (13-16 Jahre)",
           "zeit": "16:45 - 17:45"
         },
         {
@@ -68,11 +68,11 @@
       "kurse": [
         {
           "zeit": "15:30 – 16:30",
-          "name": "Little Panthers"
+          "name": "Little Panthers (6-10 Jahre)"
         },
         {
           "zeit": "16:45 – 17:45",
-          "name": "Teen Panthers"
+          "name": "Teen Panthers (13-16 Jahre)"
         },
         {
           "name": "Fighters Class",
@@ -89,11 +89,11 @@
       "kurse": [
         {
           "zeit": "14:45 – 15:30",
-          "name": "Baby Panthers"
+          "name": "Baby Panthers (4-6 Jahre)"
         },
         {
           "zeit": "15:45 – 16:45",
-          "name": "Kid Panthers"
+          "name": "Kid Panthers (10-13 Jahre)"
         },
         {
           "zeit": "17:00 – 18:00",

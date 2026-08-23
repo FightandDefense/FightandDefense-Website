@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "label": "Für Unternehmen",
+    "titel_teil1": "Firmen",
+    "titel_teil2": "seminare Selbstverteidigung in Lüneburg",
+    "text": "Ein Firmenseminar bei Fight&Defense bringt euer Team zusammen und vermittelt dabei etwas, das wirklich bleibt: die Fähigkeit, sich und andere im Ernstfall zu schützen. Praxisnah, aktivierend und individuell auf euer Unternehmen zugeschnitten."
+  },
+  "warum": {
+    "label": "Warum Fight&Defense",
+    "titel_teil1": "Mehr als ein",
+    "titel_teil2": "Teamevent",
+    "text": "Statt der üblichen Trust-Übungen erleben eure Mitarbeiter:innen echten Praxisbezug: verständliche rechtliche Grundlagen, wirkungsvolle Deeskalations- und Schutztechniken und ein gestärktes Sicherheitsgefühl im Alltag. Das Seminar wird von erfahrenen Fight&Defense-Trainern geleitet und ist für jede Fitness- und Erfahrungsstufe geeignet — Vorkenntnisse sind nicht nötig."
+  },
+  "formate": {
+    "label": "Einsatzmöglichkeiten",
+    "titel_teil1": "Passend für",
+    "titel_teil2": "jeden Anlass",
+    "karten": [
+      {
+        "icon_label": "Teamevent",
+        "titel": "Teambuilding mit echtem Mehrwert",
+        "text": "Ein gemeinsames Erlebnis, das verbindet — als Alternative oder Ergänzung zum klassischen Betriebsausflug oder Sommerfest. Aktiv, fordernd und mit einem Thema, das jeden etwas angeht."
+      },
+      {
+        "icon_label": "Gesundheitstag",
+        "titel": "Baustein für BGM & Gesundheitstage",
+        "text": "Selbstverteidigung als Teil des betrieblichen Gesundheitsmanagements: Stressabbau, Körperbewusstsein und mentale Stärke — ideal als Modul neben Ernährung, Bewegung und Ergonomie."
+      },
+      {
+        "icon_label": "Inhouse-Workshop",
+        "titel": "Individuell zugeschnittener Workshop",
+        "text": "Ob halbtags, ganztags oder als kurzer Impuls bei einer Konferenz — Inhalt, Dauer und Ort richten wir nach euren Bedürfnissen aus. Auf Wunsch auch direkt bei euch im Unternehmen."
+      }
+    ]
+  },
+  "ablauf": {
+    "label": "Ablauf",
+    "titel_teil1": "So läuft ein",
+    "titel_teil2": "Firmenseminar ab",
+    "text1": "Meldet euch einfach unverbindlich per E-Mail oder Telefon/WhatsApp bei uns. Wir klären gemeinsam Gruppengröße, Wunschtermin, Ort und Schwerpunkte und ihr erhaltet ein passendes Angebot mit Preis und Ablauf. Das Seminar selbst dauert je nach Format zwischen 2 und 6 Stunden und findet entweder in unserer Trainingshalle in Lüneburg oder bei euch vor Ort statt.",
+    "text2": "Inhaltlich vermitteln wir die wichtigsten Grundlagen zu Wahrnehmung und Deeskalation, rechtlichen Rahmenbedingungen (Notwehr) sowie einfache, unter Stress abrufbare Schutztechniken — praxisnah, alltagstauglich und ohne sportliche Vorkenntnisse.",
+    "text3": "Termine sind auch am Wochenende oder abends nach Feierabend möglich, und auf Wunsch ergänzen wir Themen wie Zivilcourage oder Konfliktmanagement für Führungskräfte — sprecht uns einfach an."
+  },
+  "kontakt_hinweis": {
+    "titel": "Anfrage per E-Mail oder Telefon",
+    "text": "Für Firmenseminare nutzen wir bewusst kein Online-Formular. Meldet euch einfach direkt bei uns — wir melden uns zeitnah mit einem passenden Angebot zurück."
+  }
+}
