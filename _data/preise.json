@@ -91,14 +91,15 @@
       "beliebt": false
     },
     {
-      "name": "10er Karte ",
-      "laufzeit": "12 Monate / 10 Check-In",
-      "altersgruppe": "Erwachsene",
-      "preis": "150",
-      "cent": "00",
       "hinweis": "Perfekt für maximale Flexibilität! ",
+      "cent": "00",
+      "name": "10er Karte ",
+      "preis": "150",
+      "einheit": "Karte",
+      "beliebt": false,
       "sparhinweis": "",
-      "beliebt": false
+      "altersgruppe": "Erwachsene",
+      "laufzeit": "10 Check-In"
     },
     {
       "altersgruppe": "Erwachsene",
