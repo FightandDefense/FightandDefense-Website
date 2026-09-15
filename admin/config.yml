@@ -60,7 +60,7 @@ collections:
               - label: "Preiseinheit"
                 name: "einheit"
                 widget: "select"
-                options: ["Monat", "Stunde", "Einheit", "Termin", "Session"]
+                options: ["Monat", "Stunde", "Einheit", "Termin", "Session", "Karte"]
                 default: "Monat"
                 required: false
                 hint: "Wird hinter dem Preis angezeigt, z.B. '54,90 / Stunde'"
@@ -193,7 +193,7 @@ collections:
                   - label: "Preiseinheit"
                     name: "einheit"
                     widget: "select"
-                    options: ["Monat", "Stunde", "Einheit", "Termin", "Session"]
+                    options: ["Monat", "Stunde", "Einheit", "Termin", "Session", "Karte"]
                     default: "Monat"
                     required: false
                     hint: "Wird hinter dem Preis angezeigt, z.B. '54,90 / Stunde'"
