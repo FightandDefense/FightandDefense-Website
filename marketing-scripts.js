@@ -23,8 +23,8 @@
    * Solange ein Label leer ist, wird die jeweilige Conversion nicht gesendet.
    */
   var CONVERSION_LABELS = {
-    anruf: '',     // Klick auf eine Telefonnummer (tel:-Link)
-    formular: ''   // erfolgreich abgesendetes Probetraining-Formular
+    anruf: '1qb5CIDMk4EdELmRtuRE',  // Klick auf eine Telefonnummer (tel:-Link)
+    formular: ''                    // erfolgreich abgesendetes Probetraining-Formular
   };
 
   /**
