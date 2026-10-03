@@ -31,6 +31,8 @@ collections:
               - { label: "Text", name: "text", widget: "text" }
               - { label: "Aktuell / Hervorgehoben", name: "hervorgehoben", widget: "boolean", default: false, hint: "Der oberste hervorgehobene Eintrag wird auf der Startseite als Highlight angezeigt" }
               - { label: "Titelbild (optional)", name: "bild", widget: "image", required: false, hint: "Großes Bild oben im Beitrag" }
+              - { label: "Titelbild – Format", name: "bild_format", widget: "select", required: false, default: "original", options: [{ label: "Original (ganzes Bild, nichts abgeschnitten)", value: "original" }, { label: "Querformat 16:9", value: "16:9" }, { label: "Banner 21:9", value: "21:9" }, { label: "Klassisch 4:3", value: "4:3" }, { label: "Quadratisch 1:1", value: "1:1" }], hint: "Bei allen Formaten außer Original wird das Bild auf die Größe zugeschnitten. Per Klick wird es immer vollständig angezeigt." }
+              - { label: "Titelbild – Ausschnitt", name: "bild_ausschnitt", widget: "select", required: false, default: "mitte", options: [{ label: "Oben", value: "oben" }, { label: "Mitte", value: "mitte" }, { label: "Unten", value: "unten" }], hint: "Welcher Teil sichtbar bleibt, wenn zugeschnitten wird (z. B. Oben bei Gruppenfotos mit Köpfen am oberen Rand). Bei Original ohne Wirkung." }
               - { label: "Bilderserie (optional)", name: "galerie", widget: "list", required: false, field: { label: "Bild", name: "bild", widget: "image" }, hint: "Mehrere Fotos, werden als Galerie unter dem Text angezeigt" }
 
   # ============ PREISE ============
