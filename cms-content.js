@@ -354,6 +354,24 @@
     });
   }
 
+  // Titelbild eines News-Beitrags: Format & Ausschnitt per CMS steuerbar, Klick öffnet die Lightbox
+  var NEWS_FORMATE = { "16:9": "16 / 9", "21:9": "21 / 9", "4:3": "4 / 3", "1:1": "1 / 1" };
+  var NEWS_AUSSCHNITT = { "oben": "center top", "mitte": "center center", "unten": "center bottom" };
+  function renderNewsBild(item) {
+    var alt = (item.titel || "").replace(/"/g, "&quot;");
+    var ratio = NEWS_FORMATE[item.bild_format];
+    var pos = NEWS_AUSSCHNITT[item.bild_ausschnitt] || "center center";
+    var imgAttr = ' src="' + item.bild + '" alt="' + alt + '" data-fd-fullsrc="' + item.bild + '" tabindex="0" role="button" title="Bild vergrößern" loading="lazy"';
+    if (ratio) {
+      // Fester Rahmen, Bild füllt ihn aus (Ränder werden je nach Ausschnitt beschnitten)
+      return '<div class="news-bild" style="aspect-ratio:' + ratio + '; overflow:hidden; border-radius:6px; margin-bottom:1.2rem; cursor:zoom-in; background:#000;">' +
+        '<img' + imgAttr + ' style="width:100%; height:100%; object-fit:cover; object-position:' + pos + '; display:block;"></div>';
+    }
+    // Standard: ganzes Bild ohne Beschnitt, hohe Hochformat-Bilder werden in der Höhe begrenzt
+    return '<div class="news-bild" style="border-radius:6px; overflow:hidden; margin-bottom:1.2rem; cursor:zoom-in; background:#000; display:flex; justify-content:center;">' +
+      '<img' + imgAttr + ' style="display:block; width:auto; max-width:100%; height:auto; max-height:520px;"></div>';
+  }
+
   // ---------- AKTUELLES / NEWS ----------
   function applyNews(data) {
     if (!data || !data.news) return;
@@ -370,9 +388,7 @@
       var dateStyle = item.hervorgehoben
         ? "color: var(--blue); font-weight: 600; font-size: 0.9rem;"
         : "color: var(--muted); font-weight: 600; font-size: 0.9rem;";
-      var imgHtml = item.bild
-        ? '<img src="' + item.bild + '" alt="' + (item.titel || "") + '" style="width:100%; max-height:320px; object-fit:cover; border-radius:6px; margin-bottom:1.2rem;">'
-        : '';
+      var imgHtml = item.bild ? renderNewsBild(item) : '';
       div.innerHTML =
         imgHtml +
         '<span style="' + dateStyle + '">' + (item.datum || "").toUpperCase() + '</span>' +
