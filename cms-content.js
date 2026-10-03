@@ -42,18 +42,45 @@
     return '<div class="fd-gallery" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(120px, 1fr)); gap:0.6rem; margin-top:1.2rem;">' + thumbs + '</div>';
   }
 
-  // Einfache Lightbox zum großen Anzeigen eines Galeriebilds (per Event-Delegation)
+  // Einfache Lightbox zum großen Anzeigen eines Bilds (Galerie & Trainerfotos, per Event-Delegation)
   if (!window.__fdLightboxInit) {
     window.__fdLightboxInit = true;
-    document.addEventListener("click", function (e) {
-      var img = e.target.closest && e.target.closest("[data-fd-fullsrc]");
-      if (!img) return;
+    var fdOpenLightbox = function (img) {
+      if (document.querySelector(".fd-lightbox")) return;
       var overlay = document.createElement("div");
+      overlay.className = "fd-lightbox";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
       overlay.setAttribute("style",
         "position:fixed; inset:0; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out; padding:2rem;");
-      overlay.innerHTML = '<img src="' + img.getAttribute("data-fd-fullsrc") + '" style="max-width:100%; max-height:100%; border-radius:6px; box-shadow:0 0 40px rgba(0,0,0,0.6);">';
-      overlay.addEventListener("click", function () { overlay.remove(); });
+      var big = document.createElement("img");
+      big.src = img.getAttribute("data-fd-fullsrc");
+      big.alt = img.getAttribute("alt") || "";
+      big.setAttribute("style", "max-width:100%; max-height:100%; object-fit:contain; border-radius:6px; box-shadow:0 0 40px rgba(0,0,0,0.6);");
+      overlay.appendChild(big);
+      var prevOverflow = document.body.style.overflow;
+      var close = function () {
+        overlay.remove();
+        document.body.style.overflow = prevOverflow;
+        document.removeEventListener("keydown", onKey);
+        if (img.focus) img.focus();
+      };
+      var onKey = function (ev) { if (ev.key === "Escape") close(); };
+      overlay.addEventListener("click", close);
+      document.addEventListener("keydown", onKey);
+      document.body.style.overflow = "hidden";
       document.body.appendChild(overlay);
+    };
+    document.addEventListener("click", function (e) {
+      var img = e.target.closest && e.target.closest("[data-fd-fullsrc]");
+      if (img) fdOpenLightbox(img);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      var img = e.target.closest && e.target.closest("[data-fd-fullsrc]");
+      if (!img) return;
+      e.preventDefault();
+      fdOpenLightbox(img);
     });
     document.addEventListener("mouseover", function (e) {
       var img = e.target.closest && e.target.closest(".fd-gallery-thumb img");
@@ -596,7 +623,7 @@
       var div = document.createElement("div");
       div.className = "team-card fade-in visible";
       var avatarHtml = member.foto
-        ? '<div class="team-avatar" style="background:none; padding:0; overflow:hidden;"><img src="' + member.foto + '" alt="' + member.name + '" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>'
+        ? '<div class="team-avatar" style="background:none; padding:0; overflow:hidden; cursor:zoom-in;"><img src="' + member.foto + '" alt="' + member.name + '" data-fd-fullsrc="' + member.foto + '" tabindex="0" role="button" title="Foto vergrößern" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>'
         : '<div class="team-avatar">' + member.kuerzel + '</div>';
       div.innerHTML =
         avatarHtml +
