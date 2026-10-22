@@ -2,26 +2,26 @@
   "einleitungstext": "",
   "standardpreise": [],
   "buchung": {
-    "webhook_url": "",
-    "kontoinhaber": "Fight & Defense GbR",
-    "iban": "",
-    "bic": "",
-    "bank": "",
-    "glaeubiger_id": "",
-    "veranstalter": "Fight & Defense GbR",
-    "anschrift": "Auf dem Schmaarkamp 1b, 21339 Lüneburg",
-    "ort": "Auf dem Schmaarkamp 1b, 21339 Lüneburg",
-    "kontakt_email": "info@fightanddefense.de",
-    "ust_satz": 19,
-    "ueberweisung_frist_tage": 7,
-    "anmeldeschluss_tage": 2,
     "einzug_tage_vor": 7,
-    "vorabinformation_tage": 2,
     "storno_stufe2_ab_tage": 14,
-    "storno_stufe2_prozent": 50,
-    "storno_stufe3_prozent": 100,
     "storno_stufe3_ab_tage": 7,
-    "max_weitere_personen": 5
+    "veranstalter": "Fight & Defense GbR",
+    "iban": "DE35 2405 0110 0066 3280 71",
+    "webhook_url": "https://hook.eu1.make.com/9b2fwgducptbu1cwc3wfugczjq7j94ea",
+    "kontoinhaber": "Fight & Defense GbR",
+    "anschrift": "Auf dem Schmaarkamp 1b, 21339 Lüneburg",
+    "anmeldeschluss_tage": 2,
+    "ort": "Auf dem Schmaarkamp 1b, 21339 Lüneburg",
+    "ueberweisung_frist_tage": 7,
+    "storno_stufe2_prozent": 50,
+    "vorabinformation_tage": 2,
+    "storno_stufe3_prozent": 100,
+    "max_weitere_personen": 5,
+    "glaeubiger_id": "",
+    "bic": "NOLADE21LBG",
+    "bank": "Sparkasse Lüneburg",
+    "kontakt_email": "info@fightanddefense.de",
+    "ust_satz": 19
   },
   "seminare": [
     {
@@ -30,7 +30,18 @@
       "datum": "13. September 2026 11.00 - 15.00 Uhr",
       "text": "In diesem 4-stündigen Einsteigerseminar lernst du die wichtigsten Grundlagen der Selbstverteidigung – praxisnah, verständlich und ohne Vorkenntnisse. Wir behandeln rechtliche Rahmenbedingungen, effektive Schutztechniken und taktische Erste Hilfe.\n\nDas Besondere: Mit deiner Teilnahme erhältst du 4 Wochen kostenlosen Zugang zu allen regulären Kursen bei Fight & Defense. So kannst du das Gelernte direkt vertiefen, in der Gruppe anwenden und deinen eigenen Rhythmus finden – ganz ohne Mehrkosten.\n\nKeine Vorerfahrung, keine sportlichen Voraussetzungen. Nur die Bereitschaft, für deine eigene Sicherheit zu trainieren.",
       "bild": "/images/uploads/fight_defense_basic_seminar_card-2-.png",
-      "beginn": "2026-09-13T11:00"
+      "beginn": "2026-10-25T10:00",
+      "preise": [
+        {
+          "bezeichnung": "Normalpreies",
+          "betrag": 59.9
+        },
+        {
+          "bezeichnung": "Studenten, Azubis, Rentner ",
+          "betrag": 54.9,
+          "nachweis_hinweis": "Ja"
+        }
+      ]
     },
     {
       "titel": "Basic-Kurs Selbstverteidigung",
