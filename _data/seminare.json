@@ -1,21 +1,44 @@
 {
   "einleitungstext": "",
+  "standardpreise": [],
+  "buchung": {
+    "webhook_url": "",
+    "kontoinhaber": "Fight & Defense GbR",
+    "iban": "",
+    "bic": "",
+    "bank": "",
+    "glaeubiger_id": "",
+    "veranstalter": "Fight & Defense GbR",
+    "anschrift": "Auf dem Schmaarkamp 1b, 21339 Lüneburg",
+    "ort": "Auf dem Schmaarkamp 1b, 21339 Lüneburg",
+    "kontakt_email": "info@fightanddefense.de",
+    "ust_satz": 19,
+    "ueberweisung_frist_tage": 7,
+    "anmeldeschluss_tage": 2,
+    "einzug_tage_vor": 7,
+    "vorabinformation_tage": 2,
+    "storno_stufe2_ab_tage": 14,
+    "storno_stufe2_prozent": 50,
+    "storno_stufe3_prozent": 100,
+    "storno_stufe3_ab_tage": 7,
+    "max_weitere_personen": 5
+  },
   "seminare": [
     {
       "titel": "Basic-Kurs Selbstverteidigung",
       "kategorie": "Selbstverteidigung",
-      "datum": "13. September 2026 11.00 - 15.00 Uhr ",
+      "datum": "13. September 2026 11.00 - 15.00 Uhr",
       "text": "In diesem 4-stündigen Einsteigerseminar lernst du die wichtigsten Grundlagen der Selbstverteidigung – praxisnah, verständlich und ohne Vorkenntnisse. Wir behandeln rechtliche Rahmenbedingungen, effektive Schutztechniken und taktische Erste Hilfe.\n\nDas Besondere: Mit deiner Teilnahme erhältst du 4 Wochen kostenlosen Zugang zu allen regulären Kursen bei Fight & Defense. So kannst du das Gelernte direkt vertiefen, in der Gruppe anwenden und deinen eigenen Rhythmus finden – ganz ohne Mehrkosten.\n\nKeine Vorerfahrung, keine sportlichen Voraussetzungen. Nur die Bereitschaft, für deine eigene Sicherheit zu trainieren.",
       "bild": "/images/uploads/fight_defense_basic_seminar_card-2-.png",
-      "link": "https://www.eventbrite.de/e/1993766326754?aff=oddtdtcreator"
+      "beginn": "2026-09-13T11:00"
     },
     {
       "titel": "Basic-Kurs Selbstverteidigung",
       "kategorie": "Selbstverteidigung",
-      "datum": "27. September 10.00 - 14.00 Uhr ",
+      "datum": "27. September 10.00 - 14.00 Uhr",
       "text": "In diesem 4-stündigen Einsteigerseminar lernst du die wichtigsten Grundlagen der Selbstverteidigung – praxisnah, verständlich und ohne Vorkenntnisse. Wir behandeln rechtliche Rahmenbedingungen, effektive Schutztechniken und taktische Erste Hilfe.\n\nDas Besondere: Mit deiner Teilnahme erhältst du 4 Wochen kostenlosen Zugang zu allen regulären Kursen bei Fight & Defense. So kannst du das Gelernte direkt vertiefen, in der Gruppe anwenden und deinen eigenen Rhythmus finden – ganz ohne Mehrkosten.\n\nKeine Vorerfahrung, keine sportlichen Voraussetzungen. Nur die Bereitschaft, für deine eigene Sicherheit zu trainieren.",
       "bild": "/images/uploads/fight_defense_basic_seminar_card-2-.png",
-      "link": "https://www.eventbrite.de/e/1993768309685?aff=oddtdtcreator"
+      "beginn": "2026-09-27T10:00"
     },
     {
       "titel": "Basic-Kurs Selbstverteidigung",
@@ -23,15 +46,7 @@
       "datum": "10. Oktober 2026 10.00 - 14.00 Uhr",
       "text": "In diesem 4-stündigen Einsteigerseminar lernst du die wichtigsten Grundlagen der Selbstverteidigung – praxisnah, verständlich und ohne Vorkenntnisse. Wir behandeln rechtliche Rahmenbedingungen, effektive Schutztechniken und taktische Erste Hilfe.\n\nDas Besondere: Mit deiner Teilnahme erhältst du 4 Wochen kostenlosen Zugang zu allen regulären Kursen bei Fight & Defense. So kannst du das Gelernte direkt vertiefen, in der Gruppe anwenden und deinen eigenen Rhythmus finden – ganz ohne Mehrkosten.\n\nKeine Vorerfahrung, keine sportlichen Voraussetzungen. Nur die Bereitschaft, für deine eigene Sicherheit zu trainieren.",
       "bild": "/images/uploads/fight_defense_basic_seminar_card-2-.png",
-      "link": "https://www.eventbrite.de/e/1993768483204?aff=oddtdtcreator"
-    },
-    {
-      "titel": "Basic-Kurs Selbstverteidigung",
-      "kategorie": "Selbstverteidigung",
-      "datum": "25. Oktober 2026 11.00 - 15.00 Uhr",
-      "text": "In diesem 4-stündigen Einsteigerseminar lernst du die wichtigsten Grundlagen der Selbstverteidigung – praxisnah, verständlich und ohne Vorkenntnisse. Wir behandeln rechtliche Rahmenbedingungen, effektive Schutztechniken und taktische Erste Hilfe.\n\nDas Besondere: Mit deiner Teilnahme erhältst du 4 Wochen kostenlosen Zugang zu allen regulären Kursen bei Fight & Defense. So kannst du das Gelernte direkt vertiefen, in der Gruppe anwenden und deinen eigenen Rhythmus finden – ganz ohne Mehrkosten.\n\nKeine Vorerfahrung, keine sportlichen Voraussetzungen. Nur die Bereitschaft, für deine eigene Sicherheit zu trainieren.",
-      "bild": "/images/uploads/fight_defense_basic_seminar_card-2-.png",
-      "link": "https://www.eventbrite.de/e/1993768624627?aff=oddtdtcreator"
+      "beginn": "2026-10-10T10:00"
     }
   ]
 }
