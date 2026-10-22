@@ -557,7 +557,7 @@
       stornoP3: n(b.storno_stufe3_prozent, 100),
       stornoZusatz: b.storno_zusatz || SEM_STORNO_ZUSATZ,
       teilnahmeText: b.teilnahme_text ||
-        "Ich bin gesundheitlich in der Lage, an dem Seminar teilzunehmen, und nehme auf eigene Verantwortung teil."
+        "Ich bin mindestens 16 Jahre alt (unter 18 Jahren nur mit Einwilligung der Erziehungsberechtigten), gesundheitlich in der Lage, am Seminar teilzunehmen, und nehme auf eigene Gefahr teil. Die gesetzliche Haftung des Veranstalters bleibt unberührt (siehe Teilnahmebedingungen)."
     };
   }
 
@@ -770,7 +770,8 @@
             '</fieldset>' +
             '<fieldset class="fudb-set"><legend>4 · Bedingungen</legend>' +
               '<div class="fudb-storno" id="fudb-storno"></div>' +
-              '<label class="fudb-check"><input type="checkbox" name="zustimmung_storno"><span>Ich habe die Stornobedingungen gelesen und akzeptiere sie. Mir ist bekannt, dass für diesen Vertrag kein gesetzliches Widerrufsrecht besteht (§ 312g Abs. 2 Nr. 9 BGB). *</span></label>' +
+              '<p class="fudb-dsinfo"><b style="color:var(--white)">Foto- und Videoaufnahmen:</b> Bei Seminaren entstehen Aufnahmen für Dokumentation und Öffentlichkeitsarbeit. Mit deiner Teilnahme stimmst du der Verwendung zu. Du kannst jederzeit widersprechen, siehe Teilnahmebedingungen. Das hat keine Nachteile für dich.</p>' +
+              '<label class="fudb-check"><input type="checkbox" name="zustimmung_storno"><span>Ich habe die Stornobedingungen und die <a href="teilnahmebedingungen-seminare.html" target="_blank" rel="noopener" style="color:var(--blue);">Teilnahmebedingungen</a> gelesen und akzeptiere sie. Mir ist bekannt, dass für diesen Vertrag kein gesetzliches Widerrufsrecht besteht (§ 312g Abs. 2 Nr. 9 BGB). *</span></label>' +
               '<label class="fudb-check" id="fudb-weitere-zust-wrap" hidden><input type="checkbox" name="zustimmung_weitere"><span>Ich bin berechtigt, die weiteren Personen anzumelden und ihre Daten anzugeben. Für Minderjährige bin ich erziehungsberechtigt. Die Bedingungen und Bestätigungen gelten auch für die weiteren Personen. *</span></label>' +
               '<label class="fudb-check" id="fudb-nachweis-wrap" hidden><input type="checkbox" name="zustimmung_nachweis"><span id="fudb-nachweis-text"></span></label>' +
               '<label class="fudb-check"><input type="checkbox" name="zustimmung_teilnahme"><span id="fudb-teilnahme-text"></span></label>' +
