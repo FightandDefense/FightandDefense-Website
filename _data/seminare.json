@@ -1,6 +1,16 @@
 {
   "einleitungstext": "",
-  "standardpreise": [],
+  "standardpreise": [
+    {
+      "bezeichnung": "Normalpreis",
+      "betrag": 59.9
+    },
+    {
+      "bezeichnung": "Studenten, Azubis, Rentner",
+      "betrag": 54.9,
+      "nachweis_hinweis": "Studierenden-, Ausbildungs- oder Rentenausweis"
+    }
+  ],
   "buchung": {
     "einzug_tage_vor": 7,
     "storno_stufe2_ab_tage": 14,
@@ -30,18 +40,7 @@
       "datum": "13. September 2026 11.00 - 15.00 Uhr",
       "text": "In diesem 4-stündigen Einsteigerseminar lernst du die wichtigsten Grundlagen der Selbstverteidigung – praxisnah, verständlich und ohne Vorkenntnisse. Wir behandeln rechtliche Rahmenbedingungen, effektive Schutztechniken und taktische Erste Hilfe.\n\nDas Besondere: Mit deiner Teilnahme erhältst du 4 Wochen kostenlosen Zugang zu allen regulären Kursen bei Fight & Defense. So kannst du das Gelernte direkt vertiefen, in der Gruppe anwenden und deinen eigenen Rhythmus finden – ganz ohne Mehrkosten.\n\nKeine Vorerfahrung, keine sportlichen Voraussetzungen. Nur die Bereitschaft, für deine eigene Sicherheit zu trainieren.",
       "bild": "/images/uploads/fight_defense_basic_seminar_card-2-.png",
-      "beginn": "2026-10-25T10:00",
-      "preise": [
-        {
-          "bezeichnung": "Normalpreies",
-          "betrag": 59.9
-        },
-        {
-          "bezeichnung": "Studenten, Azubis, Rentner ",
-          "betrag": 54.9,
-          "nachweis_hinweis": "Ja"
-        }
-      ]
+      "beginn": "2026-09-13T11:00"
     },
     {
       "titel": "Basic-Kurs Selbstverteidigung",
