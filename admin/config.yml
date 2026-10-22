@@ -83,10 +83,56 @@ collections:
     label: "Seminare"
     files:
       - file: "_data/seminare.json"
-        label: "Seminartermine"
+        label: "Seminartermine & Buchung"
         name: "seminare"
         fields:
           - { label: "Einleitungstext (über der Seminarliste)", name: "einleitungstext", widget: "text", required: false, hint: "Allgemeiner Text, der oberhalb der Seminartermine angezeigt wird. Leer lassen, wenn nicht benötigt." }
+
+          # ---------- STANDARD-PREISE ----------
+          - label: "Standard-Preise (gelten für alle Termine ohne eigene Preise)"
+            name: "standardpreise"
+            widget: "list"
+            required: false
+            label_singular: "Preis"
+            summary: "{{bezeichnung}} – {{betrag}} €"
+            hint: "Hier legst du die Preise einmal fest, z.B. Normalpreis, Studierende, Auszubildende. Jede Zeile wird auf der Webseite als auswählbares Ticket angezeigt. Nur ein Eintrag = nur ein Preis."
+            fields:
+              - { label: "Bezeichnung", name: "bezeichnung", widget: "string", hint: "z.B. Normalpreis, Studierende, Auszubildende, Schüler" }
+              - { label: "Preis in € (inkl. MwSt.)", name: "betrag", widget: "number", value_type: "float", min: 0, step: 0.5, hint: "Bruttopreis inkl. gesetzlicher MwSt., z.B. 79 oder 59.5" }
+              - { label: "Nachweis erforderlich? (optional)", name: "nachweis_hinweis", widget: "string", required: false, hint: "Nur bei ermäßigten Preisen, z.B. Studierendenausweis oder Ausbildungsnachweis. Der Kunde muss dann bestätigen, den Nachweis am Seminartag mitzubringen. Bei Normalpreis leer lassen." }
+
+          # ---------- EINSTELLUNGEN BUCHUNG ----------
+          - label: "Buchung & Zahlung (Einstellungen)"
+            name: "buchung"
+            widget: "object"
+            collapsed: true
+            summary: "Bankdaten, Stornofristen, Webhook"
+            hint: "Diese Angaben gelten für alle Seminarbuchungen. Normalerweise einmal einrichten und dann nicht mehr ändern."
+            fields:
+              - { label: "Webhook-URL (Make)", name: "webhook_url", widget: "string", required: false, hint: "Die Adresse aus dem Make-Szenario (Custom Webhook). Ohne diese Adresse ist keine Buchung möglich." }
+              - { label: "Kontoinhaber (für Überweisungen)", name: "kontoinhaber", widget: "string", default: "Fight & Defense GbR" }
+              - { label: "IBAN (für Überweisungen)", name: "iban", widget: "string", required: false }
+              - { label: "BIC", name: "bic", widget: "string", required: false }
+              - { label: "Bank", name: "bank", widget: "string", required: false }
+              - { label: "Gläubiger-Identifikationsnummer (für Lastschrift)", name: "glaeubiger_id", widget: "string", required: false, hint: "Beginnt mit DE und hat 18 Stellen. Ohne diese Nummer wird die Lastschrift nicht angeboten." }
+              - { label: "Name des Veranstalters", name: "veranstalter", widget: "string", default: "Fight & Defense GbR" }
+              - { label: "Anschrift des Veranstalters", name: "anschrift", widget: "string", default: "Auf dem Schmaarkamp 1b, 21339 Lüneburg" }
+              - { label: "Veranstaltungsort", name: "ort", widget: "string", default: "Auf dem Schmaarkamp 1b, 21339 Lüneburg" }
+              - { label: "E-Mail für Rückfragen und Stornos", name: "kontakt_email", widget: "string", default: "info@fightanddefense.de" }
+              - { label: "MwSt.-Satz in %", name: "ust_satz", widget: "number", value_type: "float", min: 0, max: 30, default: 19 }
+              - { label: "Zahlungsfrist Überweisung (Tage nach Buchung)", name: "ueberweisung_frist_tage", widget: "number", value_type: "int", min: 1, default: 7, hint: "Wird automatisch auf den Tag vor dem Seminar begrenzt." }
+              - { label: "Anmeldeschluss (Tage vor Seminarbeginn)", name: "anmeldeschluss_tage", widget: "number", value_type: "int", min: 0, default: 2, hint: "Danach ist keine Online-Buchung mehr möglich, der Termin zeigt dann 'Anfrage per E-Mail'." }
+              - { label: "Weitere Personen pro Buchung (Maximum)", name: "max_weitere_personen", widget: "number", value_type: "int", min: 0, max: 20, default: 5, hint: "Wie viele weitere Personen ein Kunde in einer Buchung mit anmelden darf. 0 schaltet die Funktion aus. Für jede Person fällt ein eigenes Ticket an." }
+              - { label: "Lastschrift: Einzug (Tage vor Seminarbeginn)", name: "einzug_tage_vor", widget: "number", value_type: "int", min: 1, default: 7 }
+              - { label: "Lastschrift: Frist der Vorabinformation (Tage)", name: "vorabinformation_tage", widget: "number", value_type: "int", min: 1, default: 2, hint: "Gesetzlich 14 Tage, kann aber vertraglich verkürzt werden (steht so im Mandatstext)." }
+              - { label: "Storno Stufe 2: gilt ab (Tage vor Seminarbeginn)", name: "storno_stufe2_ab_tage", widget: "number", value_type: "int", min: 1, default: 14, hint: "Davor ist die Stornierung kostenfrei. Beispiel 14: ab 14 Tage vor Beginn gilt die Gebühr der Stufe 2." }
+              - { label: "Storno Stufe 2: Stornogebühr in % des gezahlten Preises", name: "storno_stufe2_prozent", widget: "number", value_type: "int", min: 0, max: 100, default: 50 }
+              - { label: "Storno Stufe 3: gilt ab (Tage vor Seminarbeginn)", name: "storno_stufe3_ab_tage", widget: "number", value_type: "int", min: 0, default: 7, hint: "Muss kleiner sein als bei Stufe 2. Beispiel 7: ab 7 Tage vor Beginn und bei Nichterscheinen." }
+              - { label: "Storno Stufe 3: Stornogebühr in % des gezahlten Preises", name: "storno_stufe3_prozent", widget: "number", value_type: "int", min: 0, max: 100, default: 100 }
+              - { label: "Zusatztext zu den Stornobedingungen (optional)", name: "storno_zusatz", widget: "text", required: false, hint: "Leer lassen für den Standardtext (Ersatzteilnehmer, Nachweis geringeren Schadens, Absage durch uns)." }
+              - { label: "Text der Teilnahme-Bestätigung (optional)", name: "teilnahme_text", widget: "text", required: false, hint: "Checkbox im Formular. Leer lassen für den Standardtext (gesundheitlich in der Lage, Teilnahme auf eigene Verantwortung). Hier kannst du auch eine Altersvorgabe ergänzen." }
+
+          # ---------- TERMINE ----------
           - label: "Seminare"
             name: "seminare"
             widget: "list"
@@ -94,11 +140,30 @@ collections:
             summary: "{{titel}} – {{datum}}"
             fields:
               - { label: "Titel", name: "titel", widget: "string" }
-              - { label: "Datum & Uhrzeit", name: "datum", widget: "string", hint: "z.B. Samstag, 25. April 2026 | 10:00 – 14:00 Uhr" }
+              - label: "Kategorie"
+                name: "kategorie"
+                widget: "select"
+                required: false
+                options: ["Selbstverteidigung", "Kampfsport", "Fitness", "Für Frauen", "Für Kinder & Jugendliche", "Firmen & Gruppen", "Sonstiges"]
+              - { label: "Datum & Uhrzeit (Anzeigetext)", name: "datum", widget: "string", hint: "So steht es auf der Webseite, z.B. 25. Oktober 2026, 11:00 – 15:00 Uhr" }
+              - { label: "Beginn (für Buchung & Stornofristen)", name: "beginn", widget: "datetime", format: "YYYY-MM-DDTHH:mm", date_format: "DD.MM.YYYY", time_format: "HH:mm", picker_utc: false, required: false, hint: "WICHTIG: Ohne Beginn ist der Termin nicht online buchbar. Daraus werden die Stornofristen berechnet. Vergangene Termine blendet die Webseite automatisch aus." }
+              - { label: "Ausgebucht", name: "ausgebucht", widget: "boolean", default: false, required: false, hint: "Wenn aktiv, ist der Termin nicht mehr buchbar und zeigt 'ausgebucht'." }
               - { label: "Beschreibung", name: "text", widget: "text" }
               - { label: "Titelbild (optional)", name: "bild", widget: "image", required: false }
               - { label: "Bilderserie (optional)", name: "galerie", widget: "list", required: false, field: { label: "Bild", name: "bild", widget: "image" }, hint: "Mehrere Fotos, werden als Galerie unter dem Text angezeigt" }
-              - { label: "Anmelde-Link (optional)", name: "link", widget: "string", required: false }
+              - label: "Eigene Preise für diesen Termin (optional)"
+                name: "preise"
+                widget: "list"
+                required: false
+                collapsed: true
+                label_singular: "Preis"
+                summary: "{{bezeichnung}} – {{betrag}} €"
+                hint: "Nur ausfüllen, wenn dieser Termin andere Preise hat als die Standard-Preise. Sonst leer lassen."
+                fields:
+                  - { label: "Bezeichnung", name: "bezeichnung", widget: "string" }
+                  - { label: "Preis in € (inkl. MwSt.)", name: "betrag", widget: "number", value_type: "float", min: 0, step: 0.5 }
+                  - { label: "Nachweis erforderlich? (optional)", name: "nachweis_hinweis", widget: "string", required: false }
+              - { label: "Alter Anmelde-Link (optional, nur noch als Ersatz)", name: "link", widget: "string", required: false, hint: "Wird nur verwendet, wenn der Termin nicht online buchbar ist (z.B. kein Beginn oder keine Preise gepflegt)." }
 
   # ============ STUNDENPLAN ============
   - name: "stundenplan"
